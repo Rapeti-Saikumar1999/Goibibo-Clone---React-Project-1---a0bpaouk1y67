@@ -15,7 +15,7 @@ function NavBar() {
             <NavLink onClick={()=>setMenu("mytrips")}className="navlink mytrips-history-btn" to="/mytrips" style={{textDecoration:"none"}}><p className='mytrips'>MyTrips</p><p>Manage Bookings</p>{Menu==="mytrips"&&<hr/>}</NavLink>
         </div>
         <div className='profile'>
-            Login
+            <NavLink to="/login"  style={{textDecoration:"none"}}>Login</NavLink>
         </div>
       
     </div>

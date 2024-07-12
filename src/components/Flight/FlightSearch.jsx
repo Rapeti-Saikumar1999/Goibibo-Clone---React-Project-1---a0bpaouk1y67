@@ -45,7 +45,8 @@ setSelectedFilters({
     e.preventDefault();
     if(SelectedDate)
     {
-    const day = SelectedDate.toLocaleDateString('en-US', { weekday: 'short' });
+    const day = new Date(SelectedDate).toLocaleDateString('en-US',{weekday:'short'});
+    setDay(day);
     }
 
     fetchData();
@@ -187,7 +188,7 @@ setSelectedFilters({
         })
         .map((flight)=>
         {
-          <FlightCard key={flight.flightID} details={flight}/>
+          return <FlightCard key={flight._id} details={flight} flightId={flight._id}/>
         })
       }
       
