@@ -15,8 +15,8 @@ function Flights() {
         {
             if(source&&destination)
             {
-                const date =new Date(selectedDate).toLocaleDateString('en-US',{weekday:'short'});
-                navigate(`/flights/${source}&${destination}`,{state:{date,source,destination}})
+                const day =new Date(selectedDate).toLocaleDateString('en-US',{weekday:'short'});
+                navigate(`/flights/${source}&${destination}`,{state:{day,source,destination}})
             }
             else{
                 alert("Enter valid Input!")
@@ -58,6 +58,7 @@ function Flights() {
                 onChange={(date)=>setSelectedDate(date)}
                 placeholderText='Select Date'
                 className='datepicker'
+                minDate={new Date()}
                 />
             </div>
 
