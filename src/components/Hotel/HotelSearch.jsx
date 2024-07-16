@@ -14,6 +14,8 @@ function HotelSearch() {
     sort: false,
   });
 
+  console.log(HotelList);
+
   const handleFilterChange = (type, value) => {
     setSelectedFilters({
       ...selectedFilters,

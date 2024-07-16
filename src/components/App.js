@@ -13,6 +13,7 @@ import MyTrips from "./MyTrips/MyTrips";
 import Hotel from "./Hotel/Hotel";
 import HotelSearch from "./Hotel/HotelSearch";
 import HotelDisplay from "./Hotel/HotelDisplay";
+import HotelCheckout from "./Hotel/HotelCheckout";
 function App() {
   return <div>
     <AuthContextProvider>
@@ -25,6 +26,8 @@ function App() {
       <Route path="/hotels" element={<Hotel/>} />
       <Route path="/hotels/search/:location" element={<HotelSearch/>} />
       <Route path="/hotels/display/:id" element={<HotelDisplay/>} />
+      <Route path="/hotels/checkout/:id" element={<HotelCheckout/>} />
+
 
 
       
