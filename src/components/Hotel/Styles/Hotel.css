@@ -1,0 +1,146 @@
+.hotel-container
+{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+    background-color: #D9AFD9;
+}
+
+.hotel
+{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+    align-items: flex-start;
+    
+}
+
+form{
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.hotel h2{
+    color: orangered;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.trip-type
+{
+    display: flex;
+    gap: 30px;
+    font-size: 20px;
+    font-weight: 500;
+    color: gray;
+    margin-bottom: 20px;
+}
+
+.where
+{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    color: gray;
+    gap: 5px;
+}
+
+.where input
+{
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    outline: none;
+    text-align: center;
+}
+
+.check-in-out
+{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: gray;
+    align-items: center;
+    gap: 30px;
+}
+
+.check-in{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+.check-out{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.check-in-out input{
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    color: gray;
+    outline: none;
+    text-align: center;
+}
+
+.guests-preferences
+{
+    display: flex;
+    justify-content: space-between;
+    
+    margin-bottom: 20px;
+}
+
+.guests-preferences label
+{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.guests-preferences p{
+    font-size: 16px;
+    color: gray;
+    font-weight: 500;
+}
+.guests-rooms
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.preference{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hotel button
+{
+    margin: 0px auto;
+
+   display: flex;
+   justify-content: center;
+   background-color: orangered;
+   border: none;
+   font-weight: 500;
+   color: white;
+   font-size: 16px;
+   cursor: pointer;
+}

@@ -10,6 +10,8 @@ import AuthContextProvider from "../Auth/AuthContextProvider";
 import FlightCheckout from "./Flight/FlightCheckout"
 import FlightPayment from "./Flight/FlightPayment";
 import MyTrips from "./MyTrips/MyTrips";
+import Hotel from "./Hotel/Hotel";
+import HotelSearch from "./Hotel/HotelSearch";
 function App() {
   return <div>
     <AuthContextProvider>
@@ -19,7 +21,11 @@ function App() {
       <Route path="/flights/:search" element={<FlightSearch />} />
       <Route path="/flights/checkout" element={<FlightCheckout />} />
       <Route path="/flights/payment" element={<FlightPayment />} />
-      <Route path="/hotels" element={<Flights/>} />
+      <Route path="/hotels" element={<Hotel/>} />
+      <Route path="/hotels/search/:location" element={<HotelSearch/>} />
+
+
+      
       <Route path="/trains" element={<Flights/>} />
       <Route path="/bus" element={<Flights/>} />
       <Route path="/mytrips" element={<AuthNavigator><MyTrips/></AuthNavigator>} />
