@@ -1,0 +1,135 @@
+.checkout-container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+    background-color: #D9AFD9;
+}
+
+.checkout-container>h3{
+    font-size: 32px;
+    color: orangered;
+    font-weight: 500;
+}
+
+.checkout-flight
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.checkout-flight p{
+    color: gray;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.checkout-flight h4{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.flight-checkout-booking-details
+{
+    display: unset;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 100px;
+    border: 2px solid gray;
+    padding: 50px;
+    border-radius: 10px ;
+    width: 60%;
+
+}
+
+.flight-info
+{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    
+}
+
+.flight-info p{
+    font-weight: 500;
+}
+
+
+.flight-info-SandD
+{
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+
+}
+
+
+.flight-ticket-price-info
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+
+
+
+.checkout-info
+{
+    width: 60%;
+    border: 2px solid gray;
+    border-radius: 10px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+
+.checkout-info div
+{    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 500;
+}
+
+
+.checkout-info input,select,button
+{
+    padding: 10px 15px;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 10px;
+    font-weight: 500;
+    text-align: center;
+    width: 300px;
+}
+
+
+.checkout-info button
+{
+    color: gray;
+    font-weight: 500;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 1px 1px 3px gray;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(61, 61, 252);
+    color: white;
+    margin-top: 10px;
+   
+    text-align: center;
+    
+}
+

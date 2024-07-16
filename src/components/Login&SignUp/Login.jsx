@@ -1,25 +1,48 @@
 import React, { useState } from 'react'
-import "./Login.css"
+import "./Styles/Login.css"
 import axios from 'axios';
+import {useAuth} from "../../Auth/AuthContextProvider"
+import { useLocation, useNavigate } from 'react-router-dom';
 function Login() {
     const [Email,setEmail] = useState("");
     const [Pwd,setPwd] = useState("");
-
+    const {setIsLoggedIn} = useAuth();
+    const state= useLocation();
+    const navigate = useNavigate();
 
     const handleSubmit = async (e)=>
     {
         e.preventDefault();
         const user = {
-            email:{Email},
-            password:{Pwd},
+            email:Email,
+            password:Pwd,
             appType: "bookingportals"
         }
        try {
-        const res =  await axios.post("https://academics.newtonschool.co/api/v1/bookingportals/login",{user},{headers: {'projectId': "2qduaipfjxvu"}});
-        console.log(res)
-       } catch (error) {
+        const res =  await axios.post("https://academics.newtonschool.co/api/v1/bookingportals/login",user,{headers: {'projectId': "2qduaipfjxvu"}});
+        console.log(res.data);
+        const token = res.data.token;
+        if(token)
+        {
+            sessionStorage.setItem("userToken",token);
+            sessionStorage.setItem("userName",JSON.stringify(res.data.data.name));
+            sessionStorage.setItem("userEmail",JSON.stringify(res.data.data.email));
+            setIsLoggedIn(true);
+            // if(state)
+            // {
+            //     navigate(state.prevPath);
+            // }
+            // else{
+            //     navigate("/")
+            // }
+            navigate("/")
+          
+        }
+       } 
+       
+       catch (error) {
         console.log(error.message);
-        
+        alert(error.message);
        }
     }
   return (
@@ -37,6 +60,7 @@ function Login() {
         </div>
         </div>
         <button >Submit</button>
+        <p>If you don't have an account, Please <span onClick={()=>navigate("/signup")}>Click Here</span></p>
     </form>
     </div>
   )

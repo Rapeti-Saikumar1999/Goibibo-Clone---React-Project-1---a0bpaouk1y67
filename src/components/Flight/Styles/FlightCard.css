@@ -1,0 +1,73 @@
+.flight
+{
+    
+    background-color: white;
+    margin-bottom:10px;
+    padding: 10px;
+    box-shadow: 1px 1px 3px -1px black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex: auto;
+    
+}
+
+
+.flight .flight-booking-details
+{
+    display: flex;
+    gap: 100px;
+
+}
+
+.flight-booking-details div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.flight-booking-details div p{
+    font-size: 16px;
+    font-weight: 500;
+    color: gray;
+}
+
+.flight-booking-details div h4{
+    font-size: 16px;
+    font-weight: 500;
+    color: gray;
+}
+
+
+.benifits
+{
+    color: orange;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.flight-id
+{
+    font-size: 20px;
+    font-weight: 500;
+    color: orangered;
+}
+
+.flight button{
+    font-size: 16px;
+    color: gray;
+    font-weight: 500;
+    padding: 10px 20px;
+    text-align: center;
+    box-shadow: 1px 1px 3px gray;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(61, 61, 252);
+    color: white;
+}

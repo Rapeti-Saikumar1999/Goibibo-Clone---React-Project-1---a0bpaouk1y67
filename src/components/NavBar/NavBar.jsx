@@ -2,8 +2,11 @@ import React, { useState } from 'react'
 import "./NavBar.css"
 import { NavLink } from 'react-router-dom'
 import Logo from "../../Assets/logo.png"
+import { useAuth } from '../../Auth/AuthContextProvider'
 function NavBar() {
     const [Menu,setMenu] = useState("flight")
+    const {isLoggedIn,setIsLoggedIn} = useAuth();
+    
   return (
     <div className='nav-container'>
         <NavLink onClick={()=>setMenu("flight")} to="/" style={{textDecoration:"none"}}><img src={Logo} alt="logo" id="logo"/></NavLink>
@@ -13,9 +16,17 @@ function NavBar() {
             <NavLink onClick={()=>setMenu("trains")}className="navlink" to="/trains" style={{textDecoration:"none"}}>Trains{Menu==="trains"&&<hr/>}</NavLink>
             <NavLink onClick={()=>setMenu("bus")}className="navlink" to="/bus" style={{textDecoration:"none"}}>Bus{Menu==="bus"&&<hr/>}</NavLink>
             <NavLink onClick={()=>setMenu("mytrips")}className="navlink mytrips-history-btn" to="/mytrips" style={{textDecoration:"none"}}><p className='mytrips'>MyTrips</p><p>Manage Bookings</p>{Menu==="mytrips"&&<hr/>}</NavLink>
+        
         </div>
+   
         <div className='profile'>
-            <NavLink to="/login"  style={{textDecoration:"none"}}>Login</NavLink>
+        {
+         
+          isLoggedIn ? <NavLink to="/" onClick={()=>{
+            sessionStorage.clear();
+            setIsLoggedIn(false);
+          }}>Logout</NavLink> : <NavLink to="/login">Login</NavLink> 
+         }
         </div>
       
     </div>

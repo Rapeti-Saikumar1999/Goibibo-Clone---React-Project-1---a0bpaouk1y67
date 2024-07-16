@@ -3,9 +3,17 @@
     background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
     background-color: #D9AFD9;
     height: 100%;
-    
+    display: flex;
+    flex-direction: column;
 }
 
+.search-result-container{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+    
+}
 
 
 .flight-update-form
@@ -95,3 +103,9 @@
     background-color: rgb(61, 61, 252);
     color: white;
 }
+
+
+/* .flight-list-container
+{
+
+} */

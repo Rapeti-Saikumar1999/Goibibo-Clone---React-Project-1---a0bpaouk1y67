@@ -1,0 +1,26 @@
+.My-Trips
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.My-Trips .heading
+{
+    font-size: 28px;
+    font-weight: 600;
+    color: midnightblue;
+}
+
+.tripsdata
+{
+    display: flex;
+    gap: 30px;
+    box-shadow: 0px 0px 3px -1px black;
+    padding: 20px 50px;
+   margin-bottom: 30px;
+   width: 100%;
+   border-radius: 5px;
+}

@@ -6,7 +6,7 @@ const AuthContext = createContext();
 const AuthContextProvider =({children})=>
 {
 
-    let isUserLoggiedIn = sessionStorage.getItem("userToken") ? "true" : "false";
+    let isUserLoggiedIn = sessionStorage.getItem("userToken") ? true : false;
     let[isLoggedIn, setIsLoggedIn] = useState(isUserLoggiedIn);
     return (<AuthContext.Provider value={{isLoggedIn,setIsLoggedIn}}>{children}</AuthContext.Provider>)
 

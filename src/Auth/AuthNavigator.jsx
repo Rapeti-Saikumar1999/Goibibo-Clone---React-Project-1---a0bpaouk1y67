@@ -1,5 +1,5 @@
 import React from 'react'
-import { useAuth } from './useAuth'
+import { useAuth } from '../Auth/AuthContextProvider'
 import { Navigate, useLocation } from 'react-router-dom';
 function AuthNavigator({children}) {
     const {isLoggedIn} = useAuth();
