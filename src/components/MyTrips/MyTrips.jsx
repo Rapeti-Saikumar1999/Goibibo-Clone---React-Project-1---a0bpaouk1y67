@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "../MyTrips/MyTrips.css"
+import "../MyTrips/MyTrips.css";
 
 function MyTrips() {
   const [Trips, setTrips] = useState();
@@ -44,39 +44,41 @@ function MyTrips() {
               trip.created_at
             ).toLocaleTimeString();
 
-            return <div>
-              <div className="tripsdata">
-                {trip.booking_type === "hotel" && (
-                  <>
-                    <p>{trip.hotel.name}</p>
-                    <p>{trip.hotel.location}</p>
-                  </>
-                )}
-                {trip.booking_type === "flight" && (
-                  <>
-                    <p>{trip.flight.source}</p> ---   
-                    <p>{trip.flight.destination}</p>
-                  </>
-                )}
-                {trip.booking_type === "train" && (
-                  <>
-                    <p>{trip.train.trainNumber}</p>
-                    <p>{trip.train.trainName}</p>
-                  </>
-                )}
-                {trip.booking_type === "bus" && (
-                  <>
-                    <p>{trip.bus.name}</p>
-                    <p>{trip.bus.source}</p>
-                    <p>{trip.bus.destination}</p>
-                  </>
-                )}
-                <p>{trip.booking_type}</p>
-                <p>
-                  {formattedDate}             {formattedTime}
-                </p>
+            return (
+              <div>
+                <div className="tripsdata">
+                  {trip.booking_type === "hotel" && (
+                    <>
+                      <p>{trip.hotel.name}</p>
+                      <p>{trip.hotel.location}</p>
+                    </>
+                  )}
+                  {trip.booking_type === "flight" && (
+                    <>
+                      <p>{trip.flight.source}</p> ---
+                      <p>{trip.flight.destination}</p>
+                    </>
+                  )}
+                  {trip.booking_type === "train" && (
+                    <>
+                      <p>{trip.train.trainNumber}</p>
+                      <p>{trip.train.trainName}</p>
+                    </>
+                  )}
+                  {trip.booking_type === "bus" && (
+                    <>
+                      <p>{trip.bus.name}</p>
+                      <p>{trip.bus.source}</p>
+                      <p>{trip.bus.destination}</p>
+                    </>
+                  )}
+                  <p>{trip.booking_type}</p>
+                  <p>
+                    {formattedDate} {formattedTime}
+                  </p>
+                </div>
               </div>
-            </div>;
+            );
           })}
       </div>
     </div>

@@ -56,9 +56,10 @@ function HotelDisplay() {
     );
   }
 
-  function handleBook() {
+  function handleBook(room, e) {
+    e.preventDefault();
     if (isLoggedIn) {
-      navigate(`/hotels/checkout/${id}`);
+      navigate(`/hotels/checkout`, { state: { id, room } });
     } else {
       navigate("/login");
     }
@@ -93,12 +94,12 @@ function HotelDisplay() {
         {Hotels.rooms &&
           Hotels.rooms.map((room) => {
             return (
-              <div className="room-details">
+              <div className="room-details" key={room._id}>
                 <p>{room.roomNumber}</p>
                 <p>{room.roomType}</p>
                 <p>₹{room.price}</p>
                 <p>{room.bedDetails}</p>
-                <button onClick={handleBook}>Book Now</button>
+                <button onClick={(e) => handleBook(room, e)}>Book Now</button>
               </div>
             );
           })}

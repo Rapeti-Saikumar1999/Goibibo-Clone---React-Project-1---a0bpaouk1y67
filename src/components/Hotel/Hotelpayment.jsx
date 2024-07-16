@@ -1,7 +1,8 @@
-// import React from "react";
-import "./Styles/FlightPayment.css";
+import React from "react";
+
 import { useLocation } from "react-router-dom";
-import * as React from "react";
+import "../Flight/Styles/FlightPayment.css";
+
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -12,7 +13,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-function FlightPayment() {
+function Hotelpayment() {
   const location = useLocation();
   const state = location.state;
   const [cardnum, setcardnum] = useState("");
@@ -23,9 +24,6 @@ function FlightPayment() {
   const [upipin, setUpipin] = useState("");
   const navigate = useNavigate();
 
-  const flightID = state.details._id;
-  console.log(flightID);
-
   //@mui
   const [expanded, setExpanded] = React.useState(false);
 
@@ -33,47 +31,6 @@ function FlightPayment() {
     setExpanded((prevExpanded) => !prevExpanded);
   };
   //
-
-  const handleupipayment = async (e) => {
-    e.preventDefault();
-    if (upiid && upipin) {
-      try {
-        const token = sessionStorage.getItem("userToken");
-
-        const id = "2qduaipfjxvu";
-        const config = {
-          headers: {
-            projectId: "2qduaipfjxvu",
-            Authorization: `Bearer ${token}`,
-          },
-        };
-
-        console.log("stage1");
-
-        const reqBody = {
-          bookingType: "flight",
-          bookingDetails: {
-            flightId: flightID,
-          },
-        };
-        console.log("stage2");
-        const res = await axios.post(
-          "https://academics.newtonschool.co/api/v1/bookingportals/booking",
-          { ...reqBody, appType: "bookingportals" },
-          config
-        );
-
-        alert("Booking Success!!");
-
-        navigate("/");
-      } catch (error) {
-        alert(error.message);
-      }
-    } else {
-      alert("Please provide all details");
-    }
-  };
-
   const handlecreaditpayment = async () => {
     const currentDate = new Date();
     const expDate = new Date(exp);
@@ -81,6 +38,7 @@ function FlightPayment() {
       alert("Please select a future expiration date.");
       return;
     }
+
     if (name && cardnum && cvv && exp) {
       try {
         const token = sessionStorage.getItem("userToken");
@@ -93,9 +51,9 @@ function FlightPayment() {
         };
 
         const reqBody = {
-          bookingType: "flight",
+          bookingType: "hotel",
           bookingDetails: {
-            flightId: flightID,
+            hotelId: state.Hotel._id,
           },
         };
 
@@ -114,29 +72,69 @@ function FlightPayment() {
       alert("Please provide all details");
     }
   };
+
+  const handleupipayment = async (e) => {
+    e.preventDefault();
+    if (upiid && upipin) {
+      try {
+        const token = sessionStorage.getItem("userToken");
+
+        const id = "2qduaipfjxvu";
+        const config = {
+          headers: {
+            projectId: "2qduaipfjxvu",
+            Authorization: `Bearer ${token}`,
+          },
+        };
+
+        const reqBody = {
+          bookingType: "hotel",
+          bookingDetails: {
+            hotelId: state.Hotel._id,
+          },
+        };
+
+        const res = await axios.post(
+          "https://academics.newtonschool.co/api/v1/bookingportals/booking",
+          { ...reqBody, appType: "bookingportals" },
+          config
+        );
+
+        alert("Booking Success!!");
+
+        navigate("/");
+      } catch (error) {
+        alert(error.message);
+      }
+    } else {
+      alert("Please provide all details");
+    }
+  };
   return (
-    <div className="payment-container">
-      <h2>Pay ₹ {state.details.ticketPrice + 1678} to confirm booking</h2>
+    <div className="payment-container" style={{ marginTop: "20px" }}>
+      <h2>Pay ₹ {state.total} to confirm booking</h2>
 
       <div className="flight-user-details">
         <div className="payment-flight-details">
           <div className="airline-details">
-            <p>{state.details.airline}</p>
-            <h4>{state.details.flightID}</h4>
+            <h2 style={{ color: "red" }}>{state.Hotel.name}</h2>
+            <h4>{state.Hotel.location}</h4>
+            <p>Rating: {state.Hotel.rating}/5</p>
           </div>
 
           <div className="payment-flight-info">
             <div>
-              <p>{state.details.source}</p>
-              <h4>{state.details.departureTime}</h4>
-            </div>
-            <div>
-              <p>Duration: {state.details.duration}</p>
-              <h4>Stops: {state.details.stops}</h4>
-            </div>
-            <div>
-              <p>{state.details.destination}</p>
-              <h4>{state.details.arrivalTime}</h4>
+              <h2 style={{ color: "black" }}>Room Details</h2>
+              <div>
+                <p>Room Number: {state.roomDetails.roomNumber}</p>
+                <p>Room Type: {state.roomDetails.roomType}</p>
+                <p>Room Size{state.roomDetails.roomSize}</p>
+                <p>Price: ₹{state.roomDetails.price}</p>
+              </div>
+              <div>
+                <p>{state.roomDetails.bedDetail}</p>
+                <p>{state.roomDetails.cancellationPolicy}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -284,4 +282,4 @@ function FlightPayment() {
   );
 }
 
-export default FlightPayment;
+export default Hotelpayment;

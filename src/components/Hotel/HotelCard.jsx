@@ -5,7 +5,6 @@ function HotelCard(props) {
   const { details } = props;
   const { images, name, location, _id, rating, amenities } = details;
   const navigate = useNavigate();
-  console.log(details);
 
   const handleClick = (e) => {
     e.preventDefault();
