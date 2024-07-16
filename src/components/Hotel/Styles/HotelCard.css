@@ -1,0 +1,41 @@
+.HotelCard
+{
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    box-shadow: 1px 1px 3px -1px black;
+    display: flex;
+    align-items: center;
+    width: 700px;
+padding: 10px 10px;
+cursor: pointer;
+}
+
+.hotelImage img
+{
+    
+    width: 300px;
+    height: 200px;
+    
+}
+
+
+.hotelInfo
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 20px;
+    align-items: flex-start;
+}
+
+.hotelInfo h3{
+    color: cadetblue;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.hotelInfo h4{
+    color:orangered
+}
