@@ -17,6 +17,11 @@ import HotelCheckout from "./Hotel/HotelCheckout";
 import Hotelpayment from "./Hotel/Hotelpayment";
 import Train from "./Train/Train";
 import TrainSearch from "./Train/TrainSearch";
+import TrainCheckout from "./Train/TrainCheckout";
+import TrainPayment from "./Train/TrainPayment";
+import Bus from "./Bus/Bus";
+import BusSearch from "./Bus/BusSearch";
+import BusBooking from "./Bus/BusBooking"
 function App() {
   return <div>
     <AuthContextProvider>
@@ -37,7 +42,13 @@ function App() {
       
       <Route path="/trains" element={<Train/>} />
       <Route path="/trains/search/:source" element={<TrainSearch/>} />
-      <Route path="/bus" element={<Flights/>} />
+      <Route path="/trains/checkout" element={<TrainCheckout/>} />
+      <Route path="/trains/payment" element={<TrainPayment/>} />
+
+
+      <Route path="/bus" element={<Bus/>} />
+      <Route path="/bus/search/:source" element={<BusSearch/>} />
+      <Route path="/bus/booking/:id" element={<BusBooking/>} />
       <Route path="/mytrips" element={<AuthNavigator><MyTrips/></AuthNavigator>} />
       <Route path="/login" element={<Login/>} />
       <Route path="/signup" element={<SignUp/>} />

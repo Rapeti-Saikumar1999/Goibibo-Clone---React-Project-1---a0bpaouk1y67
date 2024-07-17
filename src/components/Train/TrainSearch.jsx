@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
-// import TrainCard from "./TrainCard";
+import TrainCard from "./TrainCard";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./Styles/Train.css";
@@ -265,8 +265,6 @@ export default function TrainSearch() {
           const trainArraival = convertTo24HourFormat(train.arrivalTime);
 
           return (
-            (selectedFilters.stops === null ||
-              train.stops === selectedFilters.stops) &&
             (selectedFilters.depature === null ||
               (trainDeparture >= selectedFilters.depature &&
                 trainDeparture < selectedFilters.depature + 6)) &&
@@ -291,8 +289,7 @@ export default function TrainSearch() {
           })
 
           .map((train) => (
-            // <TrainCard details={train} key={train._id} trainId={train._id} />
-            <p>`train${train._id}`</p>
+            <TrainCard details={train} key={train._id} trainId={train._id} />
           ))}
       </div>
     </div>
