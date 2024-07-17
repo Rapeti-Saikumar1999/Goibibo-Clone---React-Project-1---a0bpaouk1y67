@@ -2,8 +2,14 @@
 {
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
-    background-color: #D9AFD9;
+    /* background-image: linear-gradient(0deg, lightgray 0%, orangered 100%); */
+    background-image: linear-gradient(180deg, #ff512f, #f09819);
+    /* background-image: linear-gradient(180deg, orangered, #002aff31); */
+    /* background: linear-gradient(20deg, #fa421d 50%, rgb(67, 67, 242) 50%); */
+
+ 
+
+  
 }
 
 .flights
@@ -14,6 +20,7 @@
     justify-content: center;
     gap: 30px;
 padding-top: 50px;   
+
 
 }
 

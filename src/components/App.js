@@ -15,6 +15,8 @@ import HotelSearch from "./Hotel/HotelSearch";
 import HotelDisplay from "./Hotel/HotelDisplay";
 import HotelCheckout from "./Hotel/HotelCheckout";
 import Hotelpayment from "./Hotel/Hotelpayment";
+import Train from "./Train/Train";
+import TrainSearch from "./Train/TrainSearch";
 function App() {
   return <div>
     <AuthContextProvider>
@@ -33,7 +35,8 @@ function App() {
 
 
       
-      <Route path="/trains" element={<Flights/>} />
+      <Route path="/trains" element={<Train/>} />
+      <Route path="/trains/search/:source" element={<TrainSearch/>} />
       <Route path="/bus" element={<Flights/>} />
       <Route path="/mytrips" element={<AuthNavigator><MyTrips/></AuthNavigator>} />
       <Route path="/login" element={<Login/>} />
