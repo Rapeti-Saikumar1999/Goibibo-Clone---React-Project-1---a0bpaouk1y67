@@ -32,7 +32,7 @@ function FlightCheckout() {
     <div className="checkout-container">
       <h3>Review your booking</h3>
       <div className="checkout-flight">
-        <p>{details.airline}</p>
+        {/* <p>{details.airline}</p> */}
         <h4>{details.flightID}</h4>
       </div>
       <div className="flight-checkout-booking-details">
@@ -43,7 +43,10 @@ function FlightCheckout() {
               <h4>{details.departureTime}</h4>
             </div>
             <div>
-              <p>Duration: {details.duration}</p>
+              <p>
+                Duration: {details.duration}
+                {details.duration > 1 ? " hrs" : " hr"}
+              </p>
               <h4>Stops: {details.stops}</h4>
             </div>
             <div>
@@ -52,6 +55,9 @@ function FlightCheckout() {
             </div>
           </div>
           <p>Baggage -7 Kgs (1 piece only) Cabin</p>
+          <p>Seat - Limited free seats</p>
+          <p>Check-in baggage - 30kgs</p>
+          <p>cancellation fee, per passenger - Non-refundable</p>
         </div>
         <div className="flight-ticket-price-info">
           <h2>FARE SUMMARY</h2>

@@ -1,95 +1,103 @@
-.flights-container
+.flights-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.flights {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding-top: 50px;
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.flights-bgColor
+{background: #1c92d2; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to top,
+      #f2fcfe,
+      #1c92d2
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to top,
+      #f2fcfe,
+      #1c92d2
+    ); 
+
+}
+
+.flights > h2 {
+  color: black;
+  font-size: 25px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 90%;
+  height: 35vh;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px -1px gray;
+  padding: 30px 60px;
+}
+
+.radio-buttons {
+  display: flex;
+}
+
+.each-radio-button {
+  padding: 10px;
+  font-weight: 16px;
+  font-weight: 500;
+  color: gray;
+}
+
+.journeyinfo {
+  display: flex;
+  justify-content: space-around;
+}
+
+.journeyinfo input {
+  padding: 20px 30px;
+  outline: none;
+  border: 2px solid lightgray;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.submit-form button {
+  width: 200px;
+  height: 50px;
+  border: none;
+  outline: none;
+  background-color: orangered;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.submit-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.flightBanner1
 {
+    width: 70%;
+    height:300px;
+    margin: 20px auto
+}
+
+.flightBanner1 img{
     width: 100%;
-    height: 100vh;
-    /* background-image: linear-gradient(0deg, lightgray 0%, orangered 100%); */
-    background-image: linear-gradient(180deg, #ff512f, #f09819);
-    /* background-image: linear-gradient(180deg, orangered, #002aff31); */
-    /* background: linear-gradient(20deg, #fa421d 50%, rgb(67, 67, 242) 50%); */
-
- 
-
-  
-}
-
-.flights
-{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-padding-top: 50px;   
-
-
-}
-
-.flights>h2{
-    color: black;
-    font-size: 25px;
-}
-
-.details
-{
-    display: flex;
-    flex-direction: column;
-    
-    gap: 20px;
-    width: 80%;
-    height: 50vh;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 1px 1px 3px -1px gray;
-    padding: 50px 100px;
-}
-
-.radio-buttons
-{
-    display: flex;
-    justify-content: space-between;
-    
-}
-
-.each-radio-button
-{
-    padding: 10px;
-    font-weight: 16px;
-    font-weight: 500;
-    color: gray;
-}
-
-.journeyinfo
-{
-    display: flex;
-    justify-content: space-around;
-}
-
-.journeyinfo input
-{
-    padding: 20px 30px;
-    outline: none;
-    border: 2px solid lightgray;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 500;
-}
-
-.submit-form button{
-    width: 200px;
-    height: 50px;
-    border: none;
-    outline: none;
-    background-color: orangered;
-    border-radius: 10px;
-    color: white;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-}
-
-.submit-form
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 100%;
 }

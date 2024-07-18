@@ -88,7 +88,7 @@ function FlightPayment() {
 
         const config = {
           headers: {
-            projectId: "2qduaipfjxvu",
+            projectId: "a0bpaouk1y67",
             Authorization: `Bearer ${token}`,
           },
         };
@@ -116,14 +116,14 @@ function FlightPayment() {
     }
   };
   return (
-    <div>
+    <div className="flight-search-bgc flight-payment-main-container">
       <div className="payment-container">
         <h2>Pay ₹ {state.details.ticketPrice + 1678} to confirm booking</h2>
 
         <div className="flight-user-details">
           <div className="payment-flight-details">
             <div className="airline-details">
-              <p>{state.details.airline}</p>
+              {/* <p>{state.details.airline}</p> */}
               <h4>{state.details.flightID}</h4>
             </div>
 
@@ -133,7 +133,10 @@ function FlightPayment() {
                 <h4>{state.details.departureTime}</h4>
               </div>
               <div>
-                <p>Duration: {state.details.duration}</p>
+                <p>
+                  Duration: {state.details.duration}
+                  {state.details.duration > 1 ? " hrs" : " hr"}
+                </p>
                 <h4>Stops: {state.details.stops}</h4>
               </div>
               <div>

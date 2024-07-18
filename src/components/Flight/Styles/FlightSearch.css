@@ -15,18 +15,33 @@
     
 }
 
+.flight-search-bgc
+{
+    background: #1c92d2; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to top,
+      #f2fcfe,
+      #1c92d2
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to top,
+      #f2fcfe,
+      #1c92d2
+    ); 
+}
+
 
 .flight-update-form
 {
     display: flex;
     justify-content: space-between;
-    border: none;
-    width: 80%;
+    width: 100%;
     padding: 30px 30px;
-    position: relative;
-    border-radius: 10px;
-    background-color: antiquewhite;
     margin: 0 auto 50px auto;
+    border: none;
+    border-radius: unset;
+    background-color: lightblue
+
    
 }
 
@@ -35,10 +50,11 @@
 {
     padding: 10px 15px;
     outline: none;
-    border: 2px solid lightgray;
-    border-radius: 10px;
+    border-radius: 5px;
+    border: none;
     font-size: 16px;
     font-weight: 500;
+    text-align: center;
 }
 
 
@@ -54,22 +70,29 @@
     box-shadow: 1px 1px 3px gray;
     border-radius: 5px;
     cursor: pointer;
-    border: none;
+    border: 1px solid blue;
     background-color: white;
+    color: black;
 
 }
 
 .flight-filter
 {
     
-    width: 25%;
+    width: 20%;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     gap: 20px;
-    padding: 20px;
+    padding: 15px;
+}
+
+.flight-filter form{
+
+    padding: unset;
+    display: flex;
+    flex-direction: column;
 }
 
 .flight-filter h4{
@@ -102,6 +125,7 @@
     border: none;
     background-color: rgb(61, 61, 252);
     color: white;
+    width: 200px;
 }
 
 

@@ -59,7 +59,7 @@ function FlightSearch() {
 
         {
           headers: {
-            projectId: "2qduaipfjxvu",
+            projectId: "a0bpaouk1y67",
           },
         }
       );
@@ -85,183 +85,193 @@ function FlightSearch() {
   }
   return (
     <div className="flight-search-container">
-      <div className="form-container">
-        <form className="flight-update-form" onSubmit={() => handleSubmit(e)}>
-          <input
-            type="text"
-            name=""
-            id=""
-            placeholder="Enter Source...(HYD)"
-            value={source}
-            onChange={(e) => setSource(e.target.value)}
-          />
-          <input
-            type="text"
-            name=""
-            id=""
-            placeholder="Enter Destination...(MOB)"
-            value={destination}
-            onChange={(e) => setDestination(e.target.value)}
-          />
-          <DatePicker
-            selected={SelectedDate}
-            onChange={(date) => setSelectedDate(date)}
-            minDate={new Date()}
-            placeholderText="Select Date"
-            className="datepicker"
-          />
+      <div className="flight-search-bgc">
+        <div className="form-container">
+          <form className="flight-update-form" onSubmit={() => handleSubmit(e)}>
+            <input
+              type="text"
+              name=""
+              id=""
+              placeholder="Enter Source...(HYD)"
+              value={source}
+              onChange={(e) => setSource(e.target.value)}
+            />
+            <input
+              type="text"
+              name=""
+              id=""
+              placeholder="Enter Destination...(MOB)"
+              value={destination}
+              onChange={(e) => setDestination(e.target.value)}
+            />
+            <DatePicker
+              selected={SelectedDate}
+              onChange={(date) => setSelectedDate(date)}
+              minDate={new Date()}
+              placeholderText="Select Date"
+              className="datepicker"
+            />
+            <input
+              type="text"
+              name=""
+              id=""
+              placeholder="Travellers&Class"
+              style={{ cursor: "not-allowed", backgroundColor: "white" }}
+              disabled
+            />
 
-          <button type="submit">Update</button>
-        </form>
-      </div>
-
-      <div className="search-result-container">
-        <div className="flight-filter">
-          <h4>Filters</h4>
-          <form>
-            <p>Onwards Stops</p>
-            <span>
-              <input
-                type="checkbox"
-                name="stops"
-                id=""
-                value={0}
-                checked={selectedFilters.stops === 0}
-                onChange={(e) => handleFilterChange("stops", 0, e)}
-              />
-              <label>Direct</label>
-            </span>
-            <span>
-              <input
-                type="checkbox"
-                name="stops"
-                id=""
-                value={1}
-                checked={selectedFilters.stops === 1}
-                onChange={(e) => handleFilterChange("stops", 1, e)}
-              />
-              <label>1 Stops</label>
-            </span>
-            <span>
-              <input
-                type="checkbox"
-                name="stops"
-                id=""
-                value={2}
-                checked={selectedFilters.stops === 2}
-                onChange={(e) => handleFilterChange("stops", 2, e)}
-              />
-              <label>2 Stops</label>
-            </span>
+            <button type="submit">Update</button>
           </form>
-          <form action="">
-            <p>Departure</p>
-            <span>
-              <input
-                type="checkbox"
-                name="departure"
-                id=""
-                value={1}
-                onChange={(e) => handleFilterChange("departure", 0, e)}
-                checked={selectedFilters.departure === 0}
-              />
-              <label>Before 6AM</label>
-            </span>
-            <span>
-              <input
-                type="checkbox"
-                name="departure"
-                id=""
-                value={6}
-                onChange={(e) => handleFilterChange("departure", 6, e)}
-                checked={selectedFilters.departure === 6}
-              />
-              <label>6AM - 12PM</label>
-            </span>
-            <span>
-              <input
-                type="checkbox"
-                name="departure"
-                id=""
-                value={12}
-                onChange={(e) => handleFilterChange("departure", 12, e)}
-                checked={selectedFilters.departure === 12}
-              />
-              <label>12PM - 6PM</label>
-            </span>
-            <span>
-              <input
-                type="checkbox"
-                name="departure"
-                id=""
-                value={18}
-                onChange={(e) => handleFilterChange("departure", 18, e)}
-                checked={selectedFilters.departure === 18}
-              />
-              <label>After 6PM</label>
-            </span>
-          </form>
-
-          <form>
-            <p>Sort Based on the Price</p>
-            <button
-              onClick={(e) =>
-                handleFilterChange("sortPrice", !selectedFilters.sortPrice, e)
-              }
-            >
-              Sort By Price
-            </button>
-          </form>
-          <form>
-            <p>Sort Based on the Duration</p>
-            <button
-              onClick={(e) =>
-                handleFilterChange(
-                  "sortDuration",
-                  !selectedFilters.sortDuration,
-                  e
-                )
-              }
-            >
-              Sort By Duration
-            </button>
-          </form>
-          <button onClick={handleResetFilters}>Reset Filters</button>
         </div>
-        <div className="flight-list-container">
-          {flightsList.length === 0 && <h1>Data Not Found</h1>}
-          {flightsList
-            .filter((flight) => {
-              const flightDeparture = convertTo24HourFormat(
-                flight.departureTime
-              );
-              return (
-                (selectedFilters.stops === null ||
-                  selectedFilters.stops === flight.stops) &&
-                (selectedFilters.departure === null ||
-                  (flightDeparture >= selectedFilters.departure &&
-                    flightDeparture < selectedFilters.departure + 6))
-              );
-            })
-            .sort((a, b) => {
-              if (selectedFilters.sortPrice) {
-                return a.ticketPrice - b.ticketPrice;
-              }
-              return 0;
-            })
-            .sort((a, b) => {
-              if (selectedFilters.sortDuration) {
-                return a.duration - b.duration;
-              }
-              return 0;
-            })
-            .map((flight) => (
-              <FlightCard
-                key={flight._id}
-                details={flight}
-                flightId={flight._id}
-              />
-            ))}
+
+        <div className="search-result-container">
+          <div className="flight-filter">
+            <h4>Filters</h4>
+            <form>
+              <p>Onwards Stops</p>
+              <span>
+                <input
+                  type="checkbox"
+                  name="stops"
+                  id=""
+                  value={0}
+                  checked={selectedFilters.stops === 0}
+                  onChange={(e) => handleFilterChange("stops", 0, e)}
+                />
+                <label>Direct</label>
+              </span>
+              <span>
+                <input
+                  type="checkbox"
+                  name="stops"
+                  id=""
+                  value={1}
+                  checked={selectedFilters.stops === 1}
+                  onChange={(e) => handleFilterChange("stops", 1, e)}
+                />
+                <label>1 Stops</label>
+              </span>
+              <span>
+                <input
+                  type="checkbox"
+                  name="stops"
+                  id=""
+                  value={2}
+                  checked={selectedFilters.stops === 2}
+                  onChange={(e) => handleFilterChange("stops", 2, e)}
+                />
+                <label>2 Stops</label>
+              </span>
+            </form>
+            <form action="">
+              <p>Departure</p>
+              <span>
+                <input
+                  type="checkbox"
+                  name="departure"
+                  id=""
+                  value={1}
+                  onChange={(e) => handleFilterChange("departure", 0, e)}
+                  checked={selectedFilters.departure === 0}
+                />
+                <label>Before 6AM</label>
+              </span>
+              <span>
+                <input
+                  type="checkbox"
+                  name="departure"
+                  id=""
+                  value={6}
+                  onChange={(e) => handleFilterChange("departure", 6, e)}
+                  checked={selectedFilters.departure === 6}
+                />
+                <label>6AM - 12PM</label>
+              </span>
+              <span>
+                <input
+                  type="checkbox"
+                  name="departure"
+                  id=""
+                  value={12}
+                  onChange={(e) => handleFilterChange("departure", 12, e)}
+                  checked={selectedFilters.departure === 12}
+                />
+                <label>12PM - 6PM</label>
+              </span>
+              <span>
+                <input
+                  type="checkbox"
+                  name="departure"
+                  id=""
+                  value={18}
+                  onChange={(e) => handleFilterChange("departure", 18, e)}
+                  checked={selectedFilters.departure === 18}
+                />
+                <label>After 6PM</label>
+              </span>
+            </form>
+
+            <form>
+              <p>Sort Based on the Price</p>
+              <button
+                onClick={(e) =>
+                  handleFilterChange("sortPrice", !selectedFilters.sortPrice, e)
+                }
+              >
+                Sort By Price
+              </button>
+            </form>
+            <form>
+              <p>Sort Based on the Duration</p>
+              <button
+                onClick={(e) =>
+                  handleFilterChange(
+                    "sortDuration",
+                    !selectedFilters.sortDuration,
+                    e
+                  )
+                }
+              >
+                Sort By Duration
+              </button>
+            </form>
+            <button onClick={handleResetFilters}>Reset Filters</button>
+          </div>
+          <div className="flight-list-container">
+            {flightsList.length === 0 && <h1>Data Not Found</h1>}
+            {flightsList
+              .filter((flight) => {
+                const flightDeparture = convertTo24HourFormat(
+                  flight.departureTime
+                );
+                return (
+                  (selectedFilters.stops === null ||
+                    selectedFilters.stops === flight.stops) &&
+                  (selectedFilters.departure === null ||
+                    (flightDeparture >= selectedFilters.departure &&
+                      flightDeparture < selectedFilters.departure + 6))
+                );
+              })
+              .sort((a, b) => {
+                if (selectedFilters.sortPrice) {
+                  return a.ticketPrice - b.ticketPrice;
+                }
+                return 0;
+              })
+              .sort((a, b) => {
+                if (selectedFilters.sortDuration) {
+                  return a.duration - b.duration;
+                }
+                return 0;
+              })
+              .map((flight) => (
+                <FlightCard
+                  key={flight._id}
+                  details={flight}
+                  flightId={flight._id}
+                />
+              ))}
+          </div>
         </div>
       </div>
       <Footer />

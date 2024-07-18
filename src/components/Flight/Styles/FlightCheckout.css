@@ -5,14 +5,24 @@
     justify-content: center;
     align-items: center;
     gap: 30px;
-    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
-    background-color: #D9AFD9;
+    background: #1c92d2; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to top,
+      #f2fcfe,
+      #1c92d2
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to top,
+      #f2fcfe,
+      #1c92d2
+    ); 
 }
 
 .checkout-container>h3{
     font-size: 32px;
-    color: orangered;
-    font-weight: 500;
+    color: black;
+    font-weight: 600;
+    margin-top: 20px;
 }
 
 .checkout-flight
@@ -28,21 +38,23 @@
 }
 
 .checkout-flight h4{
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 600;
+    color: orange;
 }
 
 .flight-checkout-booking-details
 {
-    display: unset;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 100px;
-    border: 2px solid gray;
     padding: 50px;
-    border-radius: 10px ;
+    border-radius: 5px ;
     width: 60%;
+    background-color: white;
+    border: none;
+
 
 }
 
@@ -50,12 +62,13 @@
 {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 10px;
     
 }
 
 .flight-info p{
     font-weight: 500;
+    color: gray;
 }
 
 
@@ -66,6 +79,7 @@
     justify-content: space-between;
     align-items: center;
     text-align: center;
+    margin-bottom: 20px;
 
 }
 
@@ -84,7 +98,7 @@
 .checkout-info
 {
     width: 60%;
-    border: 2px solid gray;
+    /* border: 2px solid gray; */
     border-radius: 10px;
     padding: 50px;
     display: flex;

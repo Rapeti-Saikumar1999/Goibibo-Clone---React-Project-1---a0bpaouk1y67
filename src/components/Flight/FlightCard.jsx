@@ -6,11 +6,8 @@ import axios from "axios";
 function FlightCard(props) {
   const { isLoggedIn } = useAuth();
   const navigate = useNavigate();
-  
+
   const { details, flightId } = props;
-  // console.log(details,flightId);
-  
-  // sessionStorage.setItem("flightDetails", JSON.stringify(details));
 
   const {
     flightID,
@@ -25,51 +22,10 @@ function FlightCard(props) {
   } = details;
   const benifits = amenities.map((val) => val).join(", ");
 
-
-
   const handleClick = async (e) => {
     e.preventDefault();
     if (isLoggedIn) {
-      // try {
-      //   const token = sessionStorage.getItem("userToken");
-     
-
-      //   const config = {
-      //     headers: {
-      //       projectId: "2qduaipfjxvu",
-      //       Authorization: `Bearer ${token}`,
-      //     },
-      //   };
-
-      //   const reqBody = {
-      //     bookingType: "flight",
-      //     bookingDetails: {
-      //       flightId: flightId,
-      //     },
-      //     appType: "bookingportals",
-      //   };
-
-      //   const res = await axios.post(
-      //     "https://academics.newtonschool.co/api/v1/bookingportals/booking",
-      //     reqBody,
-      //     config
-      //   );
-      //   const bookingId = res.data.booking._id;
-      //   if (bookingId) {
-      //     sessionStorage.setItem("bookingId", bookingId);
-      //     sessionStorage.setItem(
-      //       "userId",
-      //       JSON.stringify(res.data.booking.user)
-      //     );
-      //   }
-
-      //     navigate("/flights/checkout",{state:{details}});
-       
-      // } catch (error) {
-      //   alert(error.message);
-      // }
-
-      navigate("/flights/checkout",{state:{details}})
+      navigate("/flights/checkout", { state: { details } });
     } else {
       navigate("/login");
     }
@@ -85,7 +41,10 @@ function FlightCard(props) {
           <h4>Departure Time: {departureTime}</h4>
         </div>
         <div>
-          <p>DURATION: {duration}</p>
+          <p>
+            DURATION: {duration}
+            {duration > 1 ? " hrs" : " hr"}
+          </p>
           <h4>No of stops: {stops}</h4>
         </div>
         <div>
