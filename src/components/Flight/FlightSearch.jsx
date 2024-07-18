@@ -5,6 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import FlightCard from "./FlightCard";
+import Footer from "../Footer/Footer";
 function FlightSearch() {
   const [Loading, setLoading] = useState(false);
   const [SelectedDate, setSelectedDate] = useState(null);
@@ -21,7 +22,7 @@ function FlightSearch() {
     sortDuration: false,
   });
   console.log(flightsList);
-  const handleFilterChange = (filterType, value,e) => {
+  const handleFilterChange = (filterType, value, e) => {
     e.preventDefault();
     setSelectedFilters({
       ...selectedFilters,
@@ -80,12 +81,12 @@ function FlightSearch() {
   };
 
   if (Loading) {
-    return <h3 style={{textAlign:'center'}}>Loading..</h3>;
+    return <h3 style={{ textAlign: "center" }}>Loading..</h3>;
   }
   return (
     <div className="flight-search-container">
       <div className="form-container">
-        <form className="flight-update-form" onSubmit={()=>handleSubmit(e)}>
+        <form className="flight-update-form" onSubmit={() => handleSubmit(e)}>
           <input
             type="text"
             name=""
@@ -126,7 +127,7 @@ function FlightSearch() {
                 id=""
                 value={0}
                 checked={selectedFilters.stops === 0}
-                onChange={(e) => handleFilterChange("stops", 0,e)}
+                onChange={(e) => handleFilterChange("stops", 0, e)}
               />
               <label>Direct</label>
             </span>
@@ -137,7 +138,7 @@ function FlightSearch() {
                 id=""
                 value={1}
                 checked={selectedFilters.stops === 1}
-                onChange={(e) => handleFilterChange("stops", 1,e)}
+                onChange={(e) => handleFilterChange("stops", 1, e)}
               />
               <label>1 Stops</label>
             </span>
@@ -148,7 +149,7 @@ function FlightSearch() {
                 id=""
                 value={2}
                 checked={selectedFilters.stops === 2}
-                onChange={(e) => handleFilterChange("stops", 2,e)}
+                onChange={(e) => handleFilterChange("stops", 2, e)}
               />
               <label>2 Stops</label>
             </span>
@@ -161,7 +162,7 @@ function FlightSearch() {
                 name="departure"
                 id=""
                 value={1}
-                onChange={(e) => handleFilterChange("departure", 0,e)}
+                onChange={(e) => handleFilterChange("departure", 0, e)}
                 checked={selectedFilters.departure === 0}
               />
               <label>Before 6AM</label>
@@ -172,7 +173,7 @@ function FlightSearch() {
                 name="departure"
                 id=""
                 value={6}
-                onChange={(e) => handleFilterChange("departure", 6,e)}
+                onChange={(e) => handleFilterChange("departure", 6, e)}
                 checked={selectedFilters.departure === 6}
               />
               <label>6AM - 12PM</label>
@@ -183,7 +184,7 @@ function FlightSearch() {
                 name="departure"
                 id=""
                 value={12}
-                onChange={(e) => handleFilterChange("departure", 12,e)}
+                onChange={(e) => handleFilterChange("departure", 12, e)}
                 checked={selectedFilters.departure === 12}
               />
               <label>12PM - 6PM</label>
@@ -194,7 +195,7 @@ function FlightSearch() {
                 name="departure"
                 id=""
                 value={18}
-                onChange={(e) => handleFilterChange("departure", 18,e)}
+                onChange={(e) => handleFilterChange("departure", 18, e)}
                 checked={selectedFilters.departure === 18}
               />
               <label>After 6PM</label>
@@ -205,7 +206,7 @@ function FlightSearch() {
             <p>Sort Based on the Price</p>
             <button
               onClick={(e) =>
-                handleFilterChange("sortPrice", !selectedFilters.sortPrice,e)
+                handleFilterChange("sortPrice", !selectedFilters.sortPrice, e)
               }
             >
               Sort By Price
@@ -217,7 +218,8 @@ function FlightSearch() {
               onClick={(e) =>
                 handleFilterChange(
                   "sortDuration",
-                  !selectedFilters.sortDuration,e
+                  !selectedFilters.sortDuration,
+                  e
                 )
               }
             >
@@ -262,6 +264,7 @@ function FlightSearch() {
             ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

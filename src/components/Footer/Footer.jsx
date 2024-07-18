@@ -5,6 +5,11 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import AppleIcon from "@mui/icons-material/Apple";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import masterCard from "../../Assets/master-card.png";
+import Rupay from "../../Assets/raupay.png";
+import American from "../../Assets/american express.png";
+import Visa from "../../Assets/Visa-card.png";
+import Upi from "../../Assets/upi.png";
 const Footer = () => {
   return (
     <div className="footer-container">
@@ -92,6 +97,17 @@ const Footer = () => {
               </button>
             </div>
           </div>
+          <div className="accepted-cards">
+            <img src={American} alt="" />
+            <img src={masterCard} alt="" />
+            <img src={Visa} alt="" />
+            <img src={Upi} alt="" />
+            <img src={Rupay} alt="" />
+          </div>
+        </div>
+        <hr className="footer-hr" />
+        <div className="copyRight">
+          <p>© 2024 - Sai Kumar Rapet . All rights reserved</p>
         </div>
       </div>
     </div>

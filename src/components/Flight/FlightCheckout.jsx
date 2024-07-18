@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Styles/FlightCheckout.css";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import Footer from "../Footer/Footer";
 
 function FlightCheckout() {
   const loc = useLocation();
@@ -143,6 +144,7 @@ function FlightCheckout() {
           <button type="submit">proceed to payment</button>
         </form>
       </div>
+      <Footer />
     </div>
   );
 }
