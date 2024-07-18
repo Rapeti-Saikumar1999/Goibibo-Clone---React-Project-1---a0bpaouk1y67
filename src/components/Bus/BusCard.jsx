@@ -51,10 +51,6 @@ export default function BusCard({ details }) {
           <p>Available: {available ? "true" : "false"}</p>
           <h3>No of Seats: {seats}</h3>
         </span>
-        <span>
-          <p>{type}</p>
-          <h3>Ratings: {ratings}</h3>
-        </span>
       </div>
       <div>
         <h3>Ticket Price: ₹{fare}</h3>

@@ -13,6 +13,7 @@ export default function BusCheckout() {
   const location = useLocation();
   const state = location.state;
   console.log(state.bus);
+  const bus = state.bus;
 
   const Handlesubmit = (e) => {
     e.preventDefault();

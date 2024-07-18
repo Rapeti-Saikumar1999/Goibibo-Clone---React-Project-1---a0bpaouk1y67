@@ -23,6 +23,7 @@ import Bus from "./Bus/Bus";
 import BusSearch from "./Bus/BusSearch";
 import BusBooking from "./Bus/BusBooking"
 import BusCheckout from "./Bus/BusCheckout";
+import BusPayment from "./Bus/BusPayment";
 function App() {
   return <div>
     <AuthContextProvider>
@@ -51,6 +52,9 @@ function App() {
       <Route path="/bus/search/:source" element={<BusSearch/>} />
       <Route path="/bus/booking/:_id" element={<BusBooking/>} />
       <Route path="/bus/checkout" element={<BusCheckout/>} />
+      <Route path="/bus/payment" element={<BusPayment/>} />
+
+
       <Route path="/mytrips" element={<AuthNavigator><MyTrips/></AuthNavigator>} />
       <Route path="/login" element={<Login/>} />
       <Route path="/signup" element={<SignUp/>} />
