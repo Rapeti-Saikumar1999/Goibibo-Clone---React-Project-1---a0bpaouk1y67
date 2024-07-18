@@ -1,92 +1,85 @@
 import "./Styles/BusBooking.css";
 import axios from "axios";
-
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../Auth/AuthContextProvider";
 export default function BusBooking() {
   const { _id } = useParams();
-  const [bus, setBus] = useState(null);
+  const [bus, setBus] = useState("");
   const [loading, setLoading] = useState(false);
   const [selectedSeats, setSelectedSeats] = useState([]);
   const navigate = useNavigate();
   const { isLoggedIn } = useAuth();
-  useEffect(() => {
-    const getBusData = async () => {
-      const config = {
-        headers: {
-          projectId: "2qduaipfjxvu",
-        },
-      };
 
-      try {
-        const response = await axios.get(
-          `https://academics.newtonschool.co/api/v1/bookingportals/bus/${_id}`,
-          config
-        );
-        setBus(response.data.data);
-      } catch (err) {
-        console.log(err);
-      }
+  // console.log(bus);
+
+  function Seats() {
+    const TotalSeats = [];
+    for (let index = 0; index < bus.seats; index++) {
+      TotalSeats.push(
+        <div
+          key={index + 1}
+          className={
+            bus.available
+              ? selectedSeats[index]
+                ? "selectedseat"
+                : "availableseat"
+              : "bookedseat"
+          }
+          onClick={(event) => handleSeatClick(index)}
+        >
+          {index + 1}
+        </div>
+      );
+    }
+
+    return TotalSeats;
+  }
+
+  const getBusData = async () => {
+    const config = {
+      headers: {
+        projectId: "2qduaipfjxvu",
+      },
     };
 
+    try {
+      const response = await axios.get(
+        `https://academics.newtonschool.co/api/v1/bookingportals/bus/${_id}`,
+        config
+      );
+
+      setBus(response.data.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
     getBusData();
-  }, [_id]);
+  });
 
   const handleSeatClick = (index, event) => {
     if (bus.available) {
       const newSelectedSeats = [...selectedSeats];
+      console.log("seat", newSelectedSeats);
       newSelectedSeats[index] = !newSelectedSeats[index];
       setSelectedSeats(newSelectedSeats);
-      const seatElement = event.target;
-      seatElement.classList.toggle("selectedseat");
     }
   };
+
+  console.log(selectedSeats);
 
   const handlebooking = async () => {
     const greySeatsCount = selectedSeats.filter((seat) => seat).length;
-    sessionStorage.setItem("selectedSeats", greySeatsCount);
     if (isLoggedIn) {
-      try {
-        const token = sessionStorage.getItem("userToken");
-
-        const config = {
-          headers: {
-            projectId: "9sa80czkq1na",
-            Authorization: `Bearer ${token}`,
-          },
-        };
-
-        const requestBody = {
-          bookingType: "bus",
-          bookingDetails: {
-            busId: _id,
-          },
-        };
-
-        const res = await axios.post(
-          "https://academics.newtonschool.co/api/v1/bookingportals/booking",
-          { ...requestBody, appType: "bookingportals" },
-          config
-        );
-
-        const bookingId = res.data.bookingId?._id;
-        if (bookingId) {
-          sessionStorage.setItem("bookingId", bookingId);
-          sessionStorage.setItem(
-            "userId",
-            JSON.stringify(res.data.bookingId.user)
-          );
-          navigate("/bus/checkout");
-        }
-      } catch (err) {
-        console.error("Error:", err);
-      }
-      navigate("/bus/checkout");
+      navigate("/bus/checkout", { state: { greySeatsCount, bus } });
     } else {
-      navigate("/login", { state: { prevPath: "/bus/checkout" } });
+      navigate("/login");
     }
   };
+
+  console.log(bus);
 
   return (
     <div className="bus-booking">
@@ -107,22 +100,11 @@ export default function BusBooking() {
       </div>
       <div>
         {bus && (
-          <div className="seat-container">
-            {Array.from({ length: bus.seats }, (_, index) => (
-              <div
-                key={index + 1}
-                className={
-                  bus.available
-                    ? selectedSeats[index]
-                      ? "selectedseat"
-                      : "availableseat"
-                    : "bookedseat"
-                }
-                onClick={(event) => handleSeatClick(index, event)}
-              >
-                {index + 1}
-              </div>
-            ))}
+          <div
+            className="seats-container"
+            style={{ display: "flex", flexWrap: "wrap", gap: "30px" }}
+          >
+            {Seats()}
           </div>
         )}
         <div className="seat-details">
@@ -154,11 +136,7 @@ export default function BusBooking() {
             />
           </div>
           {bus.available && (
-            <button
-              type="submit"
-              className="busbooking-button"
-              onClick={handlebooking}
-            >
+            <button type="submit" onClick={handlebooking}>
               Book Now
             </button>
           )}

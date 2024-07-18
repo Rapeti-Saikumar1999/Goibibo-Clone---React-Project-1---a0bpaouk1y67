@@ -22,6 +22,7 @@ import TrainPayment from "./Train/TrainPayment";
 import Bus from "./Bus/Bus";
 import BusSearch from "./Bus/BusSearch";
 import BusBooking from "./Bus/BusBooking"
+import BusCheckout from "./Bus/BusCheckout";
 function App() {
   return <div>
     <AuthContextProvider>
@@ -48,7 +49,8 @@ function App() {
 
       <Route path="/bus" element={<Bus/>} />
       <Route path="/bus/search/:source" element={<BusSearch/>} />
-      <Route path="/bus/booking/:id" element={<BusBooking/>} />
+      <Route path="/bus/booking/:_id" element={<BusBooking/>} />
+      <Route path="/bus/checkout" element={<BusCheckout/>} />
       <Route path="/mytrips" element={<AuthNavigator><MyTrips/></AuthNavigator>} />
       <Route path="/login" element={<Login/>} />
       <Route path="/signup" element={<SignUp/>} />

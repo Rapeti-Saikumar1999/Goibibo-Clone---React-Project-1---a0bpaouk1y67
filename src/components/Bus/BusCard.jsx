@@ -60,6 +60,7 @@ export default function BusCard({ details }) {
         <h3>Ticket Price: ₹{fare}</h3>
         <button onClick={handleClick}>SELECT SEAT</button>
       </div>
+      <p>{_id}</p>
       <p className="bus-benifits">{benifits}</p>
     </div>
   );

@@ -56,9 +56,8 @@ export default function BusSearch() {
         config
       );
 
-      console.log(response);
-
       setBusList(response.data.data.buses);
+
       setLoading(false);
     } catch (err) {
       setLoading(false);
