@@ -3,6 +3,7 @@ import "./Styles/Flights.css";
 import { useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Footer from "../Footer/Footer";
 function Flights() {
   const [source, setSource] = useState("");
   const [destination, setDestination] = useState("");
@@ -81,6 +82,8 @@ function Flights() {
           </div>
         </form>
       </div>
+
+      <Footer />
     </div>
   );
 }
