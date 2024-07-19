@@ -1,0 +1,21 @@
+.payment-flight-details p
+{
+font-weight: 500;
+}
+
+.train-payment-info
+{
+   display: flex;
+   gap: 30px;
+   color: darkslategrey;
+}
+
+.train-flight-info
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+}

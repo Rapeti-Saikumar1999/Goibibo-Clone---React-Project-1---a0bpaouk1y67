@@ -1,0 +1,64 @@
+.train-checkout-container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.train-info-price-container
+{
+    display: flex;
+    margin: 50px 0px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    justify-content: space-around;
+    padding: 20px;
+    gap: 50px;
+}
+
+
+.train-checkout-info
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.train-checkout-info span
+{
+    display: flex;
+    gap: 20px;
+}
+
+
+.train-checkout-info div{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.train-price-details
+{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.grand-total
+{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.train-checkout-info  p{
+   font-weight: 500;
+   color: darkslategrey;
+}
+
+.train-price-details p{
+    font-weight: 500;
+   color: darkslategrey;
+}

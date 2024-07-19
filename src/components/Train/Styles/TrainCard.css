@@ -1,0 +1,59 @@
+.train-card
+{
+    display: flex;
+    flex-direction: column;
+    border: none;
+    background-color: white;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    padding: 20px 20px;
+    gap: 20px;
+}
+
+.train-coach
+{
+    display: flex;
+    justify-content: space-between;
+  
+   
+}
+
+.coach-info
+{
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 20px 0px;
+}
+
+.train-coach button
+{
+    width: 50px;
+    background-color: unset;
+    border: none;
+    font-size: 25px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.trainheading h2{
+    color: blue;
+    font-weight: 600;
+
+}
+
+.trainheading
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.train-info p
+{
+font-weight: 500;
+text-align: center;
+}

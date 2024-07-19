@@ -33,7 +33,7 @@
 
 }
 
-.Trains button
+.train-search-btn
 {
     width: 200px;
   height: 50px;
@@ -56,7 +56,7 @@
 }
 
 
-.Trains h2{
+.Trains .Trains-heading{
     font-size: 25px;
     font-weight: 600;
     margin: 20px 0px;

@@ -2,6 +2,7 @@ import "./Styles/BusBooking.css";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import Footer from "../Footer/Footer";
 import { useAuth } from "../../Auth/AuthContextProvider";
 export default function BusBooking() {
   const { _id } = useParams();
@@ -27,6 +28,7 @@ export default function BusBooking() {
               : "bookedseat"
           }
           onClick={(event) => handleSeatClick(index)}
+          style={{ borderRadius: "5px", cursor: "pointer" }}
         >
           {index + 1}
         </div>
@@ -82,66 +84,72 @@ export default function BusBooking() {
   console.log(bus);
 
   return (
-    <div className="bus-booking">
-      <h1>{bus.name}</h1>
+    <div>
+      <div className="bus-booking flight-search-bgc">
+        <h1 style={{ color: "white" }}>{bus.name}</h1>
 
-      <div className="busbooking-details">
-        <div>
-          <h2>Boarding Point</h2>
-          <p>{bus.departureTime}</p>
-          <p>{bus.source}</p>
+        <div className="busbooking-details">
+          <div>
+            <h2>Boarding Point</h2>
+            <p>{bus.departureTime}</p>
+            <p>{bus.source}</p>
+          </div>
+          <p>{"---->"}</p>
+          <div>
+            <h2>Dropping Point</h2>
+            <p>{bus.arrivalTime}</p>
+            <p>{bus.destination}</p>
+          </div>
         </div>
-        <p>{"---->"}</p>
-        <div>
-          <h2>Dropping Point</h2>
-          <p>{bus.arrivalTime}</p>
-          <p>{bus.destination}</p>
-        </div>
-      </div>
-      <div>
-        {bus && (
-          <div
-            className="seats-container"
-            style={{ display: "flex", flexWrap: "wrap", gap: "30px" }}
-          >
-            {Seats()}
+        <div className="seats-container">
+          <div className="seats-list">
+            {bus && (
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "30px" }}>
+                {Seats()}
+              </div>
+            )}
           </div>
-        )}
-        <div className="seat-details">
-          <div style={{ display: "flex" }}>
-            <span>Not Available</span>
-            <img
-              src="https://webkit.org/blog-files/color-gamut/Webkit-logo-P3.png"
-              width="30px"
-              height="30px"
-              alt="red box"
-            />
-          </div>
-          <div style={{ display: "flex" }}>
-            <span>Available</span>
-            <img
-              src="https://www.clker.com/cliparts/b/e/c/3/131406375432193858green%20square.png"
-              width="35px"
-              height="35px"
-              alt="green box"
-            />
-          </div>
-          <div style={{ display: "flex" }}>
-            <span>Selected by you</span>
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Grey_Square.svg/2048px-Grey_Square.svg.png"
-              width="35px"
-              height="35px"
-              alt="grey box"
-            />
+          <div className="seat-details">
+            <div style={{ display: "flex" }}>
+              <span>Not Available</span>
+              <img
+                src="https://webkit.org/blog-files/color-gamut/Webkit-logo-P3.png"
+                width="30px"
+                height="30px"
+                alt="red box"
+              />
+            </div>
+            <div style={{ display: "flex" }}>
+              <span>Available</span>
+              <img
+                src="https://www.clker.com/cliparts/b/e/c/3/131406375432193858green%20square.png"
+                width="35px"
+                height="35px"
+                alt="green box"
+              />
+            </div>
+            <div style={{ display: "flex" }}>
+              <span>Selected by you</span>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Grey_Square.svg/2048px-Grey_Square.svg.png"
+                width="35px"
+                height="35px"
+                alt="grey box"
+              />
+            </div>
           </div>
           {bus.available && (
-            <button type="submit" onClick={handlebooking}>
+            <button
+              type="submit"
+              onClick={handlebooking}
+              className="bus-booking-btn"
+            >
               Book Now
             </button>
           )}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

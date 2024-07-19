@@ -1,0 +1,36 @@
+.BusCard
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    border: none;
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.Bus-Booking-detals
+{
+    display: flex;
+    gap: 30px
+}
+
+.Bus-Booking-detals span
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.select-seat
+{
+    width: auto;
+    background-color: blue;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+}

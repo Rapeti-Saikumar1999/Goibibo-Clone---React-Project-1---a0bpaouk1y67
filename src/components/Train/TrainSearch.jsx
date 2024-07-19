@@ -6,7 +6,6 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./Styles/TrainSearch.css";
 import Footer from "../Footer/Footer";
-
 export default function TrainSearch() {
   const location = useLocation();
   const [selectedDate, setSelectedDate] = useState(null);
@@ -93,7 +92,7 @@ export default function TrainSearch() {
 
   return (
     <div>
-      <div className="fligth-search-bgc">
+      <div className="flight-search-bgc">
         <div className="train-search-container">
           <form onSubmit={handleSubmit}>
             <input
@@ -119,13 +118,14 @@ export default function TrainSearch() {
               popperPlacement="bottom-start"
               style={{ height: "8px" }}
             />
-
-            <button type="submit">Update</button>
+            <button type="submit" className="train-update-btn">
+              Update
+            </button>
           </form>
         </div>
 
-        <div className="filter">
-          <div className="filtersbox">
+        <div className="train-filter-list-container">
+          <div className="flight-filter ">
             <h4>Filters</h4>
             <form>
               <p>Depature</p>
@@ -222,74 +222,72 @@ export default function TrainSearch() {
               </span>
             </form>
             <form>
-              <p>Sort based on Price</p>
-              <input
-                type="button"
-                id="price"
-                name="price"
+              <p></p>
+              <button
                 onClick={() =>
                   handleFilterChange("sortPrice", !selectedFilters.sortPrice)
                 }
-                value="Sort by Price"
-                className="train-filter-price"
-              />
+              >
+                Sort By Price
+              </button>
             </form>
 
             <form>
-              <p>Sort based on Duration</p>
-              <input
-                type="button"
-                id="duration"
-                name="duration"
+              <p></p>
+              <button
                 onClick={() =>
                   handleFilterChange(
                     "sortDuration",
                     !selectedFilters.sortDuration
                   )
                 }
-                value="Sort by duration"
-                className="train-filter-price"
-              />
+              >
+                Sort By Duration
+              </button>
             </form>
 
             <button onClick={handleResetFilters} id="train-reset-button">
               Reset filters
             </button>
           </div>
-        </div>
 
-        <div className="hotel-list-container">
-          {Traintlist.filter((train) => {
-            const trainDeparture = convertTo24HourFormat(train.departureTime);
-            const trainArraival = convertTo24HourFormat(train.arrivalTime);
+          <div className="train-list-container">
+            {Traintlist.filter((train) => {
+              const trainDeparture = convertTo24HourFormat(train.departureTime);
+              const trainArraival = convertTo24HourFormat(train.arrivalTime);
 
-            return (
-              (selectedFilters.depature === null ||
-                (trainDeparture >= selectedFilters.depature &&
-                  trainDeparture < selectedFilters.depature + 6)) &&
-              (selectedFilters.arraival === null ||
-                (trainArraival >= selectedFilters.arraival &&
-                  trainArraival < selectedFilters.arraival + 6))
-            );
-          })
-            .sort((a, b) => {
-              if (selectedFilters.sortDuration) {
-                const trainDurationA = Number(
-                  convertTo24HourForm(a.travelDuration)
-                );
-                const trainDurationB = Number(
-                  convertTo24HourForm(b.travelDuration)
-                );
-                return trainDurationA - trainDurationB;
-              } else if (selectedFilters.sortPrice) {
-                return a.fare - b.fare;
-              }
-              return 0;
+              return (
+                (selectedFilters.depature === null ||
+                  (trainDeparture >= selectedFilters.depature &&
+                    trainDeparture < selectedFilters.depature + 6)) &&
+                (selectedFilters.arraival === null ||
+                  (trainArraival >= selectedFilters.arraival &&
+                    trainArraival < selectedFilters.arraival + 6))
+              );
             })
+              .sort((a, b) => {
+                if (selectedFilters.sortDuration) {
+                  const trainDurationA = Number(
+                    convertTo24HourForm(a.travelDuration)
+                  );
+                  const trainDurationB = Number(
+                    convertTo24HourForm(b.travelDuration)
+                  );
+                  return trainDurationA - trainDurationB;
+                } else if (selectedFilters.sortPrice) {
+                  return a.fare - b.fare;
+                }
+                return 0;
+              })
 
-            .map((train) => (
-              <TrainCard details={train} key={train._id} trainId={train._id} />
-            ))}
+              .map((train) => (
+                <TrainCard
+                  details={train}
+                  key={train._id}
+                  trainId={train._id}
+                />
+              ))}
+          </div>
         </div>
       </div>
       <Footer />

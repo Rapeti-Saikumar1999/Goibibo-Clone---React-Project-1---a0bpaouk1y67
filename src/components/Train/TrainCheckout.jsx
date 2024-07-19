@@ -43,29 +43,29 @@ export default function TrainCheckout() {
 
   return (
     <div>
-      <div className="train-checkout-container">
-        <div className="">
-          <section>
+      <div className="train-checkout-container flight-search-bgc">
+        <div className="train-info-price-container">
+          <section className="train-checkout-info">
             <h2>TRAIN INFO</h2>
             <div>
               <p>{state.details.trainName}</p>
-              <h4>{state.details.trainNumber}</h4>
+              <h4>Train Number: {state.details.trainNumber}</h4>
             </div>
-            <div>
-              <span>
+
+            <span>
+              <div>
                 <p>SOURCE: {state.details.source}</p>
                 <h3>Depature Time: {state.details.departureTime}</h3>
-              </span>
-              <span>
+              </div>
+              <div>
                 <p>Duration: {state.details.travelDuration}</p>
-                <p>--------------</p>
-              </span>
-              <span>
+                <p>-----------</p>
+              </div>
+              <div>
                 <p>Destination: {state.details.destination}</p>
                 <h3>Arrival Time: {state.details.arrivalTime}</h3>
-              </span>
-            </div>
-            <p>Baggage -7 Kgs (1 piece only) Cabin</p>
+              </div>
+            </span>
           </section>
 
           <section className="train-price-details">

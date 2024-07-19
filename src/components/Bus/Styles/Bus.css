@@ -1,0 +1,112 @@
+.Bus
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.Bus-container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    gap: 30px;
+}
+
+
+.Bus-container .heading{
+    font-weight: 600;
+    font-size: 25px;
+} 
+
+
+.Bus-container form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    
+}
+
+
+.Bus-container form input{
+    margin: 0px 20px;
+}
+
+
+.searchBus button
+{
+    width: 200px;
+    height: 50px;
+    border: none;
+    outline: none;
+    background-color: orangered;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+}
+
+.searchBus
+{
+    display: flex;
+    justify-content: center;
+}
+
+.allState-bus-transports
+{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.statebus-details
+{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+
+gap: 20px;
+
+}
+
+.statebus
+{
+    border: 1px solid gray;
+    padding: 10px 20px;
+    border-radius:5px ;
+
+}
+
+.statebus-details section
+{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.allState-bus-transports
+{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.allState-bus-transports h2{
+font-weight: 600;
+}
+
+
+.busBanner
+{
+    width: 60%;
+}
+.busBanner img{
+    height: 300px;
+    width: 100%;
+}

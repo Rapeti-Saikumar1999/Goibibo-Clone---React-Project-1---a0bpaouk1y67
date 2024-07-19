@@ -27,3 +27,69 @@
     align-items: center;
   
   }
+
+
+  .bus-booking
+  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+  }
+
+
+  .bus-booking  h1,h2{
+    font-weight: 600;
+  }
+  .seat-details
+  {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0px;
+    gap: 30px;
+    align-items: center;
+  }
+
+ .seats-list
+ {
+  padding: 30px;
+  background-color: white;
+  width: 90%;
+  margin-top: 50px;
+  border-radius: 5px;
+  
+ }
+
+ .busbooking-details
+ {
+  display: flex;
+  gap: 50px;
+  margin-top: 20px;
+
+ }
+
+ .busbooking-details div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ }
+
+
+ .bus-booking-btn
+ {
+  background-color: blue;
+  width: 200px;
+  color: white;
+  font-weight: 600;
+margin: 0px auto;
+cursor: pointer;
+text-align: center;
+ }
+
+ .seats-container
+ {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+ }

@@ -1,0 +1,21 @@
+.payment-bus-info
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.bus-payment-info
+{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.bus-payment-info div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

@@ -4,7 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Footer from "../Footer/Footer";
 import TrainBanner1 from "../../Assets/TrainBanner1.jpg";
-
+import "./Styles/Train.css";
 export default function Train() {
   const [source, setSource] = useState("");
   const [destination, setDestination] = useState("");
@@ -28,7 +28,7 @@ export default function Train() {
   return (
     <div className="flight-search-bgc">
       <div className="Trains">
-        <h2>Train Ticket Booking</h2>
+        <h2 className="Trains-heading">Train Ticket Booking</h2>
         <form onSubmit={handleSubmit}>
           <div className="radio-button">
             <div>
@@ -69,7 +69,9 @@ export default function Train() {
             />
           </div>
 
-          <button type="submit">Search Trains</button>
+          <button type="submit" className="train-search-btn">
+            Search Trains
+          </button>
         </form>
 
         <img src={TrainBanner1} alt="" className="train-banner" />

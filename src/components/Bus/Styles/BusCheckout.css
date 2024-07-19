@@ -1,0 +1,47 @@
+.bus-checkout-container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.bus-checkout
+{
+    border: 1px solid gray;
+    width: 60%;
+    padding-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.bus-checkout-info 
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.bus-checkout-info  .busCheckout-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.busBooking-details
+{
+    display: flex;
+    gap: 30px;
+}
+
+.busBooking-details span
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

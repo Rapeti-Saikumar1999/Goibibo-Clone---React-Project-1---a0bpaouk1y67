@@ -35,7 +35,7 @@ export default function BusCard({ details }) {
   return (
     <div className="BusCard">
       <div className="busCard-container">
-        <h2 style={{ color: "red" }}>{name}</h2>
+        <h2 style={{ color: "darkgreen", fontWeight: "600" }}>{name}</h2>
       </div>
       <div className="Bus-Booking-detals">
         <span>
@@ -52,12 +52,20 @@ export default function BusCard({ details }) {
           <h3>No of Seats: {seats}</h3>
         </span>
       </div>
-      <div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "10px",
+        }}
+      >
         <h3>Ticket Price: ₹{fare}</h3>
-        <button onClick={handleClick}>SELECT SEAT</button>
+        <button onClick={handleClick} className="select-seat">
+          Select Seat
+        </button>
       </div>
-      <p>{_id}</p>
-      <p className="bus-benifits">{benifits}</p>
+      <p className="bus-benifits">Benifits: {benifits}</p>
     </div>
   );
 }

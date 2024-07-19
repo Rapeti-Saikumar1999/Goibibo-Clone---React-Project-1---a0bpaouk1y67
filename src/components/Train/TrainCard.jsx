@@ -35,11 +35,12 @@ export default function TrainCard({ details, trainId }) {
       key={index}
       onClick={() => handleBookNow(coach)}
       style={{ cursor: "pointer" }}
+      className="coach-info"
     >
-      <p style={{ backgroundColor: "#f7edf6" }}>
+      <p style={{ fontWeight: "600" }}>
         <span>{coach.coachType}</span> <span>₹{fare}</span>
       </p>
-      <p>GNWL {coach.numberOfSeats}</p>
+      <p style={{ color: "darkgreen" }}>AVL {coach.numberOfSeats}</p>
     </div>
   ));
 
@@ -66,9 +67,9 @@ export default function TrainCard({ details, trainId }) {
   return (
     <div className="train-card">
       <div className="trainheading">
-        <h1>
+        <h2>
           {trainNumber} {trainName}({trainType})
-        </h1>
+        </h2>
         <p>Runs on: {days}</p>
       </div>
       <section className="trainheading">
@@ -90,7 +91,9 @@ export default function TrainCard({ details, trainId }) {
             &#10095;
           </button>
         </div>
-        <p id="train-available-seats">Available Seats: {availableSeats}</p>
+        <p id="train-available-seats" style={{ color: "orange" }}>
+          Available Seats: {availableSeats}
+        </p>
       </div>
     </div>
   );
