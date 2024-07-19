@@ -44,7 +44,7 @@ function FlightPayment() {
         const id = "2qduaipfjxvu";
         const config = {
           headers: {
-            projectId: "2qduaipfjxvu",
+            projectId: "a0bpaouk1y67",
             Authorization: `Bearer ${token}`,
           },
         };

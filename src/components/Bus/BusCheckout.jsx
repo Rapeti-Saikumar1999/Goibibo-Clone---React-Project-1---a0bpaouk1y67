@@ -28,9 +28,9 @@ export default function BusCheckout() {
     }
   };
 
-  let farePrie = state.greySeatsCount * state.bus.fare;
+  let farePrice = state.greySeatsCount * state.bus.fare;
   let tax = state.greySeatsCount * 78;
-  let totalPrice = tax + farePrie;
+  let totalPrice = tax + farePrice;
 
   return (
     <div>
@@ -58,7 +58,7 @@ export default function BusCheckout() {
             <h1>FARE SUMMARY</h1>
             <span className="grand-total">
               <p style={{ color: "darkslategray" }}>Base fare</p>
-              <h3>₹{farePrie}</h3>
+              <h3>₹{farePrice}</h3>
             </span>
             <span className="grand-total">
               <p style={{ color: "darkslategray" }}>Taxes and Surcharges</p>

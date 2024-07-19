@@ -23,13 +23,19 @@ function Login() {
       const res = await axios.post(
         "https://academics.newtonschool.co/api/v1/bookingportals/signup",
         user,
-        { headers: { projectId: "2qduaipfjxvu" } }
+        { headers: { projectId: "a0bpaouk1y67" } }
       );
       const token = res.data.token;
       if (token) {
         sessionStorage.setItem("userToken", token);
-        sessionStorage.setItem("userName", JSON.stringify(res.data.data.user.name));
-        sessionStorage.setItem("userEmail", JSON.stringify(res.data.data.user.email));
+        sessionStorage.setItem(
+          "userName",
+          JSON.stringify(res.data.data.user.name)
+        );
+        sessionStorage.setItem(
+          "userEmail",
+          JSON.stringify(res.data.data.user.email)
+        );
         setIsLoggedIn(true);
 
         navigate("/login");

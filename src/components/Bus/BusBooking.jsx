@@ -41,7 +41,7 @@ export default function BusBooking() {
   const getBusData = async () => {
     const config = {
       headers: {
-        projectId: "2qduaipfjxvu",
+        projectId: "a0bpaouk1y67",
       },
     };
 

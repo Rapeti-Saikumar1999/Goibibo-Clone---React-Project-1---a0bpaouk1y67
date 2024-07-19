@@ -45,7 +45,7 @@ export default function TrainSearch() {
   const getTrainsData = async () => {
     const config = {
       headers: {
-        projectId: "2qduaipfjxvu",
+        projectId: "a0bpaouk1y67",
       },
     };
 
