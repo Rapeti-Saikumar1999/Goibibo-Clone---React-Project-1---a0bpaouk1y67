@@ -73,7 +73,7 @@ function HotelCheckout() {
 
   return (
     <div>
-      <div className="hotel-checkout">
+      <div className="hotel-checkout flight-search-bgc">
         <h3>HOTEL INFO</h3>
         <div className="hotel-checkout-info">
           <div className="hotel-checkout-image">
@@ -99,22 +99,27 @@ function HotelCheckout() {
               </div>
             </div>
           </div>
+          <div className="total-price">
+            <h2>FARE SUMMARY</h2>
+            <div className="grand-total">
+              <p>Base fare</p>
+              <p style={{ fontSize: "20px", fontWeight: "700" }}>
+                ₹{roomDetails.price}
+              </p>
+            </div>
+            <div className="grand-total">
+              <p>Taxes and Surcharges</p>
+              <p style={{ fontSize: "20px", fontWeight: "700" }}>₹1678</p>
+            </div>
+            <div className="grand-total">
+              <p>Grand Total</p>
+              <p style={{ fontSize: "20px", fontWeight: "700" }}>₹{total}</p>
+            </div>
+          </div>
         </div>
-        <div className="total-price">
-          <h2>FARE SUMMARY</h2>
-          <div className="grand-total">
-            <p>Base fare</p>
-            <h3>₹{roomDetails.price}</h3>
-          </div>
-          <div className="grand-total">
-            <p>Taxes and Surcharges</p>
-            <h3>₹1678</h3>
-          </div>
-          <div className="grand-total">
-            <h2>Grand Total</h2>
-            <h3>₹{total}</h3>
-          </div>
-        </div>
+
+        <hr className="footer-hr" style={{ width: "80%" }} />
+
         <div className="checkout-info">
           <h2>GUEST DETAILS</h2>
           <form action="" onSubmit={(e) => Handlesubmit(e)}>

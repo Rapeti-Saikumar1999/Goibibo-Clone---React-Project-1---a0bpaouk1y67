@@ -31,6 +31,7 @@
 .flights > h2 {
   color: black;
   font-size: 25px;
+  font-weight: 600;
 }
 
 .details {
@@ -101,3 +102,49 @@
     width: 100%;
     height: 100%;
 }
+
+.Promises-guarantees
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+}
+
+.Promises-guarantees main
+{
+  text-align: center;
+  margin: 20px 0px;
+}
+
+.train-container-images
+{
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.train-container-images div{
+  display: flex;
+  gap: unset;
+  gap: 10px;
+
+}
+
+.train-container-images div span h2{
+  margin: unset;
+}
+
+
+.train-container-images div span p{
+font-weight: 400;
+}
+
+.train-banner 
+{
+  width: 90%;
+border-radius: 5px;
+margin: 50px auto 20px auto;
+
+}
+

@@ -11,6 +11,7 @@ import Fade from "@mui/material/Fade";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Footer from "../Footer/Footer";
 
 function TrainPayment() {
   const location = useLocation();
@@ -112,169 +113,172 @@ function TrainPayment() {
     }
   };
   return (
-    <div className="payment-container" style={{ marginTop: "20px" }}>
-      <h2>Pay ₹ {state.total} to confirm booking</h2>
+    <div>
+      <div className="payment-container" style={{ marginTop: "20px" }}>
+        <h2>Pay ₹ {state.total} to confirm booking</h2>
 
-      <div className="flight-user-details">
-        <div className="payment-flight-details">
-          <div className="airline-details">
-            <h2 style={{ color: "red" }}>{state.details.trainName}</h2>
-            <h4>{state.details.trainNumber}</h4>
-            <p>Rating: {state.details.trainType}</p>
-          </div>
+        <div className="flight-user-details">
+          <div className="payment-flight-details">
+            <div className="airline-details">
+              <h2 style={{ color: "red" }}>{state.details.trainName}</h2>
+              <h4>{state.details.trainNumber}</h4>
+              <p>Rating: {state.details.trainType}</p>
+            </div>
 
-          <div className="payment-flight-info">
-            <div>
-              <h2 style={{ color: "black" }}>Room Details</h2>
+            <div className="payment-flight-info">
               <div>
-                <p>Source:{state.details.source}</p>
-                <p>Duration:{state.details.travelDuration}</p>
-                <p>Destination:{state.details.destination}</p>
-                <p>Price: ₹{state.totalPrice}</p>
+                <h2 style={{ color: "black" }}>Room Details</h2>
+                <div>
+                  <p>Source:{state.details.source}</p>
+                  <p>Duration:{state.details.travelDuration}</p>
+                  <p>Destination:{state.details.destination}</p>
+                  <p>Price: ₹{state.totalPrice}</p>
+                </div>
               </div>
             </div>
           </div>
+
+          <div className="user-details">
+            <p>
+              <span>Name: </span>
+              {state.FirstName} {state.LastName}
+            </p>
+            <p>
+              <span>Email: </span>
+              {state.Email}
+            </p>
+            <p>
+              <span>Phone Number: </span>
+              {state.PhoneNo}
+            </p>
+          </div>
         </div>
 
-        <div className="user-details">
-          <p>
-            <span>Name: </span>
-            {state.FirstName} {state.LastName}
-          </p>
-          <p>
-            <span>Email: </span>
-            {state.Email}
-          </p>
-          <p>
-            <span>Phone Number: </span>
-            {state.PhoneNo}
-          </p>
+        <div className="flight-payment-container">
+          <h3>ALL PAYMENT OPTIONS</h3>
+          <div>
+            <Accordion
+              expanded={expanded}
+              onChange={handleExpansion}
+              slots={{ transition: Fade }}
+              slotProps={{ transition: { timeout: 400 } }}
+              sx={{
+                "& .MuiAccordion-region": { height: expanded ? "auto" : 0 },
+                "& .MuiAccordionDetails-root": {
+                  display: expanded ? "block" : "none",
+                },
+              }}
+            >
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1-content"
+                id="panel1-header"
+              >
+                <Typography>
+                  <h3>UPI Options</h3>
+                  <p>Pay directly from your Bank Account</p>
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  <form onSubmit={(e) => handleupipayment(e)}>
+                    <div className="paymentsucesss">
+                      <div>
+                        <label htmlFor="upiid">UPI Id:</label>
+                        <input
+                          type="text"
+                          pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                          value={upiid}
+                          onChange={(e) => setUpiid(e.target.value)}
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="upipin">UPI Pin: </label>
+                        <input
+                          type="tel"
+                          pattern="[0-9]{6}"
+                          value={upipin}
+                          onChange={(e) => setUpipin(e.target.value)}
+                          required
+                          placeholder="Please enter exactly 6 digits"
+                        />
+                      </div>
+                      <button type="submit">Submit</button>
+                    </div>
+                  </form>
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel2-content"
+                id="panel2-header"
+              >
+                <Typography>
+                  <h3>Credit/Debit/ATM Card</h3>
+                  <p>Visa, MasterCard, Amex, Rupay and more</p>
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  <form onSubmit={handlecreaditpayment}>
+                    <div className="paymentsucesss">
+                      <div>
+                        <label htmlFor="cardNumber">Card Number:</label>
+                        <input
+                          type="text"
+                          id="cardNumber"
+                          name="cardNumber"
+                          pattern="[0-9]{13,16}"
+                          value={cardnum}
+                          onChange={(e) => setcardnum(e.target.value)}
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="name">Name on Card: </label>
+                        <input
+                          type="text"
+                          id="name"
+                          name="name"
+                          pattern="[A-Za-z ]{1,}"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="expiration">Expiration: </label>
+                        <input
+                          type="date"
+                          id="expiration"
+                          name="expiration"
+                          value={exp}
+                          onChange={(e) => setexp(e.target.value)}
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="cvv">CVV: </label>
+                        <input
+                          type="text"
+                          id="cvv"
+                          name="cvv"
+                          pattern="[0-9]{3,4}"
+                          title="Enter a valid CVV (3 or 4 digits)"
+                          value={cvv}
+                          onChange={(e) => setCvv(e.target.value)}
+                        />
+                      </div>
+                      <button type="submit">Submit</button>
+                    </div>
+                  </form>
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+          </div>
         </div>
       </div>
-
-      <div className="flight-payment-container">
-        <h3>ALL PAYMENT OPTIONS</h3>
-        <div>
-          <Accordion
-            expanded={expanded}
-            onChange={handleExpansion}
-            slots={{ transition: Fade }}
-            slotProps={{ transition: { timeout: 400 } }}
-            sx={{
-              "& .MuiAccordion-region": { height: expanded ? "auto" : 0 },
-              "& .MuiAccordionDetails-root": {
-                display: expanded ? "block" : "none",
-              },
-            }}
-          >
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel1-content"
-              id="panel1-header"
-            >
-              <Typography>
-                <h3>UPI Options</h3>
-                <p>Pay directly from your Bank Account</p>
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography>
-                <form onSubmit={(e) => handleupipayment(e)}>
-                  <div className="paymentsucesss">
-                    <div>
-                      <label htmlFor="upiid">UPI Id:</label>
-                      <input
-                        type="text"
-                        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-                        value={upiid}
-                        onChange={(e) => setUpiid(e.target.value)}
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="upipin">UPI Pin: </label>
-                      <input
-                        type="tel"
-                        pattern="[0-9]{6}"
-                        value={upipin}
-                        onChange={(e) => setUpipin(e.target.value)}
-                        required
-                        placeholder="Please enter exactly 6 digits"
-                      />
-                    </div>
-                    <button type="submit">Submit</button>
-                  </div>
-                </form>
-              </Typography>
-            </AccordionDetails>
-          </Accordion>
-          <Accordion>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel2-content"
-              id="panel2-header"
-            >
-              <Typography>
-                <h3>Credit/Debit/ATM Card</h3>
-                <p>Visa, MasterCard, Amex, Rupay and more</p>
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography>
-                <form onSubmit={handlecreaditpayment}>
-                  <div className="paymentsucesss">
-                    <div>
-                      <label htmlFor="cardNumber">Card Number:</label>
-                      <input
-                        type="text"
-                        id="cardNumber"
-                        name="cardNumber"
-                        pattern="[0-9]{13,16}"
-                        value={cardnum}
-                        onChange={(e) => setcardnum(e.target.value)}
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="name">Name on Card: </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        pattern="[A-Za-z ]{1,}"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="expiration">Expiration: </label>
-                      <input
-                        type="date"
-                        id="expiration"
-                        name="expiration"
-                        value={exp}
-                        onChange={(e) => setexp(e.target.value)}
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="cvv">CVV: </label>
-                      <input
-                        type="text"
-                        id="cvv"
-                        name="cvv"
-                        pattern="[0-9]{3,4}"
-                        title="Enter a valid CVV (3 or 4 digits)"
-                        value={cvv}
-                        onChange={(e) => setCvv(e.target.value)}
-                      />
-                    </div>
-                    <button type="submit">Submit</button>
-                  </div>
-                </form>
-              </Typography>
-            </AccordionDetails>
-          </Accordion>
-        </div>
-      </div>
+      <Footer />
     </div>
   );
 }

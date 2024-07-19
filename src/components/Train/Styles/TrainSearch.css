@@ -1,0 +1,28 @@
+.train-search-container form
+{
+    background-color: lightblue;
+    display: flex;
+    justify-content: space-around;
+}
+
+.train-search-container form input{
+    padding: 10px 30px;
+    outline: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    outline: none;
+    border: none;
+}
+
+
+.train-search-container form button
+{
+    border: 1px solid blue;
+    color: black;
+    font-weight: 500;
+    background-color: white;
+    border-radius: 5px;
+    width: 150px;
+    font-size: 16px;
+}

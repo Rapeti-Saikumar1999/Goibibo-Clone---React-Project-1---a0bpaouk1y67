@@ -1,0 +1,63 @@
+.Trains form{
+    width: 80%;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.Trains .radio-button
+{
+    display: flex;
+    gap: 20px;
+    color: gray;
+    font-weight: 500;
+}
+
+.Trains .journey-info input
+{
+    padding: 20px 30px;
+    outline: none;
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+
+}
+
+.journey-info
+{
+    display: flex;
+    justify-content:center;
+    gap: 30px;
+
+}
+
+.Trains button
+{
+    width: 200px;
+  height: 50px;
+  border: none;
+  outline: none;
+  background-color: orangered;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin: 0px auto;
+}
+
+.Trains
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.Trains h2{
+    font-size: 25px;
+    font-weight: 600;
+    margin: 20px 0px;
+}
