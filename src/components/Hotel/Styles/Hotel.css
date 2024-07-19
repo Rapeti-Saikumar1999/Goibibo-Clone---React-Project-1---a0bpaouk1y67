@@ -32,11 +32,12 @@ form{
 .trip-type
 {
     display: flex;
-    gap: 30px;
-    font-size: 20px;
+    gap: 20px;
+    font-size: 16px;
     font-weight: 500;
     color: gray;
     margin-bottom: 20px;
+    
 }
 
 .where
@@ -44,7 +45,7 @@ form{
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 500;
     color: gray;
     gap: 5px;
@@ -60,6 +61,8 @@ form{
     outline: none;
     text-align: center;
 }
+
+
 
 .check-in-out
 {
@@ -109,12 +112,12 @@ form{
 
 .guests-preferences label
 {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
 }
 
 .guests-preferences p{
-    font-size: 16px;
+    font-size: 14px;
     color: gray;
     font-weight: 500;
 }
@@ -129,6 +132,17 @@ form{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.search-banner
+{
+    display: flex;
+    align-items: center;
+}
+
+.search-banner img{
+   height: 90%;
+   width: 90%;
 }
 
 .hotel button

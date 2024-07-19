@@ -1,14 +1,14 @@
 .HotelCard
 {
     border: 1px solid gray;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-bottom: 10px;
     background-color: white;
     box-shadow: 1px 1px 3px -1px black;
     display: flex;
     align-items: center;
     width: 700px;
-padding: 10px 10px;
+padding: 10px 10px 0px 10px;
 cursor: pointer;
 }
 
@@ -17,6 +17,7 @@ cursor: pointer;
     
     width: 300px;
     height: 200px;
+    border-radius: 5px;
     
 }
 
@@ -31,8 +32,8 @@ cursor: pointer;
 }
 
 .hotelInfo h3{
-    color: cadetblue;
-    font-weight: 500;
+    color: blue;
+        font-weight: 600;
     font-size: 16px;
 }
 

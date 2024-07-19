@@ -2,8 +2,21 @@
 {
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
-    background-color: #D9AFD9;
+}
+
+.hotelSearch
+{
+    background: #1c92d2; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to top,
+      #f2fcfe,
+      #1c92d2
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to top,
+      #f2fcfe,
+      #1c92d2
+    ); 
 }
 
 .hotelSearch
@@ -19,16 +32,17 @@
     padding: 20px 50px;
     border: none;
     outline: none;
-    border-radius: 10px;
+    border-radius: 5px;
     font-weight: 500;
     font-size: 16px;
+    text-align: center;
 
 }
 .filter-list
 {
     display: flex;
     justify-content: space-between;
-    padding: 50px;
+    padding: 20px 50px;
     width: 100%;
 }
 
@@ -36,8 +50,9 @@
 {
     display: flex;
     flex-direction: column;
-    width: 300px;
-    font-size: 20px;  
+    width: 250px;
+    font-size: 16px; 
+    font-weight: 500;
 }
 
 form{
@@ -58,13 +73,15 @@ form label
 {
    background-color: blue;
    color: white;
+   width: auto;
+   margin-bottom: 10px;
 }
 
 .filters h4{
     font-size: 28px;
     font-weight: 600;
     margin-left: 5px;
-    color: chocolate;
+    color: black
 }
 
 .hotel-list-container

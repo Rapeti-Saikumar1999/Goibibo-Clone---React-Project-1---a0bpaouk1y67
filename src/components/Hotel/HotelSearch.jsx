@@ -46,7 +46,7 @@ function HotelSearch() {
   const fetchHotelsData = async () => {
     const config = {
       headers: {
-        projectId: "2qduaipfjxvu",
+        projectId: "a0bpaouk1y67",
       },
     };
 
