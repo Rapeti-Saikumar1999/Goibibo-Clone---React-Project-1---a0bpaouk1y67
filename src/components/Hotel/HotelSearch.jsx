@@ -3,6 +3,9 @@ import "./Styles/HotelSearch.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import HotelCard from "./HotelCard";
+
+import Footer from "../Footer/Footer";
+
 function HotelSearch() {
   const { location } = useParams();
   const [HotelList, setHotelList] = useState([]);
@@ -214,6 +217,7 @@ function HotelSearch() {
           </div>
         </div>
       </div>
+      <Footer />;
     </div>
   );
 }

@@ -5,6 +5,9 @@ import "./Styles/HotelDisplay.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../Auth/AuthContextProvider";
+
+import Footer from "../Footer/Footer";
+
 function HotelDisplay() {
   const { id } = useParams();
   const [Hotels, setHotels] = useState({ images: [] });
@@ -66,44 +69,48 @@ function HotelDisplay() {
   }
 
   return (
-    <div className="Display-hotel">
-      <div className="Slide-Show">
-        <div className="slide-images">
-          <button className="prev" onClick={handleClickPre}>
-            &#10094;
-          </button>
-          <img
-            className="image"
-            src={Hotels.images[currentIndex]}
-            alt="hotelImage"
-          />
-          <button className="next" onClick={handleClickNext}>
-            &#10095;
-          </button>
+    <div>
+      <div className="Display-hotel">
+        <div className="Slide-Show">
+          <div className="slide-images">
+            <button className="prev" onClick={handleClickPre}>
+              &#10094;
+            </button>
+            <img
+              className="image"
+              src={Hotels.images[currentIndex]}
+              alt="hotelImage"
+            />
+            <button className="next" onClick={handleClickNext}>
+              &#10095;
+            </button>
+          </div>
+          <div className="hotel-display-info">
+            <h1 className="hotelTitle">{Hotels.name}</h1>
+            <p className="hotelLocation">{Hotels.location}</p>
+            <p className="hotelRating">Rating: {Hotels.rating}</p>
+            <p className="hotelAmenities">
+              Special Benefits:{" "}
+              {Hotels.amenities && Hotels.amenities.join(" , ")}
+            </p>
+          </div>
         </div>
-        <div className="hotel-display-info">
-          <h1 className="hotelTitle">{Hotels.name}</h1>
-          <p className="hotelLocation">{Hotels.location}</p>
-          <p className="hotelRating">Rating: {Hotels.rating}</p>
-          <p className="hotelAmenities">
-            Special Benefits: {Hotels.amenities && Hotels.amenities.join(" , ")}
-          </p>
+        <div className="room-container">
+          {Hotels.rooms &&
+            Hotels.rooms.map((room) => {
+              return (
+                <div className="room-details" key={room._id}>
+                  <p>{room.roomNumber}</p>
+                  <p>{room.roomType}</p>
+                  <p>₹{room.price}</p>
+                  <p>{room.bedDetails}</p>
+                  <button onClick={(e) => handleBook(room, e)}>Book Now</button>
+                </div>
+              );
+            })}
         </div>
       </div>
-      <div className="room-container">
-        {Hotels.rooms &&
-          Hotels.rooms.map((room) => {
-            return (
-              <div className="room-details" key={room._id}>
-                <p>{room.roomNumber}</p>
-                <p>{room.roomType}</p>
-                <p>₹{room.price}</p>
-                <p>{room.bedDetails}</p>
-                <button onClick={(e) => handleBook(room, e)}>Book Now</button>
-              </div>
-            );
-          })}
-      </div>
+      <Footer />;
     </div>
   );
 }
