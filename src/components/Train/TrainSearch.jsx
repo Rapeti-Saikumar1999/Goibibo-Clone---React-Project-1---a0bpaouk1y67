@@ -42,6 +42,14 @@ export default function TrainSearch() {
     });
   };
 
+  const handleFilterChange1 = (filterType, value, e) => {
+    e.preventDefault();
+    setSelectedFilters({
+      ...selectedFilters,
+      [filterType]: value,
+    });
+  };
+
   const getTrainsData = async () => {
     const config = {
       headers: {
@@ -224,8 +232,12 @@ export default function TrainSearch() {
             <form>
               <p></p>
               <button
-                onClick={() =>
-                  handleFilterChange("sortPrice", !selectedFilters.sortPrice)
+                onClick={(e) =>
+                  handleFilterChange1(
+                    "sortPrice",
+                    !selectedFilters.sortPrice,
+                    e
+                  )
                 }
               >
                 Sort By Price
@@ -235,10 +247,11 @@ export default function TrainSearch() {
             <form>
               <p></p>
               <button
-                onClick={() =>
-                  handleFilterChange(
+                onClick={(e) =>
+                  handleFilterChange1(
                     "sortDuration",
-                    !selectedFilters.sortDuration
+                    !selectedFilters.sortDuration,
+                    e
                   )
                 }
               >

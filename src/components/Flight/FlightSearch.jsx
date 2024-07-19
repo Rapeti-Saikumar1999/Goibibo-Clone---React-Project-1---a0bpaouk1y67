@@ -22,7 +22,14 @@ function FlightSearch() {
     sortDuration: false,
   });
   console.log(flightsList);
-  const handleFilterChange = (filterType, value, e) => {
+  const handleFilterChange = (filterType, value) => {
+    setSelectedFilters({
+      ...selectedFilters,
+      [filterType]: value,
+    });
+  };
+
+  const handleFilterChange1 = (filterType, value, e) => {
     e.preventDefault();
     setSelectedFilters({
       ...selectedFilters,
@@ -134,9 +141,8 @@ function FlightSearch() {
                   type="checkbox"
                   name="stops"
                   id=""
-                  value={0}
                   checked={selectedFilters.stops === 0}
-                  onChange={(e) => handleFilterChange("stops", 0, e)}
+                  onChange={(e) => handleFilterChange("stops", 0)}
                 />
                 <label>Direct</label>
               </span>
@@ -145,9 +151,8 @@ function FlightSearch() {
                   type="checkbox"
                   name="stops"
                   id=""
-                  value={1}
                   checked={selectedFilters.stops === 1}
-                  onChange={(e) => handleFilterChange("stops", 1, e)}
+                  onChange={(e) => handleFilterChange("stops", 1)}
                 />
                 <label>1 Stops</label>
               </span>
@@ -156,9 +161,8 @@ function FlightSearch() {
                   type="checkbox"
                   name="stops"
                   id=""
-                  value={2}
                   checked={selectedFilters.stops === 2}
-                  onChange={(e) => handleFilterChange("stops", 2, e)}
+                  onChange={(e) => handleFilterChange("stops", 2)}
                 />
                 <label>2 Stops</label>
               </span>
@@ -170,8 +174,7 @@ function FlightSearch() {
                   type="checkbox"
                   name="departure"
                   id=""
-                  value={1}
-                  onChange={(e) => handleFilterChange("departure", 0, e)}
+                  onChange={(e) => handleFilterChange("departure", 0)}
                   checked={selectedFilters.departure === 0}
                 />
                 <label>Before 6AM</label>
@@ -181,8 +184,7 @@ function FlightSearch() {
                   type="checkbox"
                   name="departure"
                   id=""
-                  value={6}
-                  onChange={(e) => handleFilterChange("departure", 6, e)}
+                  onChange={(e) => handleFilterChange("departure", 6)}
                   checked={selectedFilters.departure === 6}
                 />
                 <label>6AM - 12PM</label>
@@ -192,8 +194,7 @@ function FlightSearch() {
                   type="checkbox"
                   name="departure"
                   id=""
-                  value={12}
-                  onChange={(e) => handleFilterChange("departure", 12, e)}
+                  onChange={(e) => handleFilterChange("departure", 12)}
                   checked={selectedFilters.departure === 12}
                 />
                 <label>12PM - 6PM</label>
@@ -203,8 +204,7 @@ function FlightSearch() {
                   type="checkbox"
                   name="departure"
                   id=""
-                  value={18}
-                  onChange={(e) => handleFilterChange("departure", 18, e)}
+                  onChange={(e) => handleFilterChange("departure", 18)}
                   checked={selectedFilters.departure === 18}
                 />
                 <label>After 6PM</label>
@@ -215,7 +215,11 @@ function FlightSearch() {
               <p>Sort Based on the Price</p>
               <button
                 onClick={(e) =>
-                  handleFilterChange("sortPrice", !selectedFilters.sortPrice, e)
+                  handleFilterChange1(
+                    "sortPrice",
+                    !selectedFilters.sortPrice,
+                    e
+                  )
                 }
               >
                 Sort By Price
@@ -225,7 +229,7 @@ function FlightSearch() {
               <p>Sort Based on the Duration</p>
               <button
                 onClick={(e) =>
-                  handleFilterChange(
+                  handleFilterChange1(
                     "sortDuration",
                     !selectedFilters.sortDuration,
                     e
