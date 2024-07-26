@@ -26,7 +26,6 @@ export default function TrainCard({ details, trainId }) {
     .join("  ");
 
   sessionStorage.setItem("trainDetails", JSON.stringify(details));
-  console.log(details);
   const [currentCoachIndex, setCurrentCoachIndex] = useState(0);
   const navigate = useNavigate();
   const { isLoggedIn } = useAuth();

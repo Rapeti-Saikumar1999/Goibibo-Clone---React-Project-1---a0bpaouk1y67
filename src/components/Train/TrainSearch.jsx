@@ -230,7 +230,6 @@ export default function TrainSearch() {
               </span>
             </form>
             <form>
-              <p></p>
               <button
                 onClick={(e) =>
                   handleFilterChange1(
@@ -245,7 +244,6 @@ export default function TrainSearch() {
             </form>
 
             <form>
-              <p></p>
               <button
                 onClick={(e) =>
                   handleFilterChange1(

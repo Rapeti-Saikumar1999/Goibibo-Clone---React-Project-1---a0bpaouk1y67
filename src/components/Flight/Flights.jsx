@@ -68,7 +68,7 @@ function Flights() {
                 id=""
                 value={destination}
                 onChange={(e) => setDestination(e.target.value)}
-                placeholder="Enter Destination...(BOM)"
+                placeholder="Enter Destination...(DEL)"
               />
 
               <DatePicker
@@ -99,7 +99,7 @@ function Flights() {
           <img src={Banner1} alt="" />
         </div>
 
-        <div className="flightsOffer"></div>
+        {/* <div className="flightsOffer"></div> */}
         <div className="flightBanner1">
           <img src={Banner2} alt="" />
         </div>

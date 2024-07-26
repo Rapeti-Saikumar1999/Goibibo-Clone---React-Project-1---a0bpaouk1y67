@@ -30,7 +30,6 @@ function HotelDisplay() {
     try {
       setLoading(true);
       const res = await axios.get(`${url}${id}`, config);
-      console.log(res);
       setHotels(res.data.data);
       setLoading(false);
     } catch (error) {

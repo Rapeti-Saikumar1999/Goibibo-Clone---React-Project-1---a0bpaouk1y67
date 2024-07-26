@@ -70,8 +70,6 @@ export default function BusBooking() {
     }
   };
 
-  console.log(selectedSeats);
-
   const handlebooking = async () => {
     const greySeatsCount = selectedSeats.filter((seat) => seat).length;
     if (isLoggedIn) {
@@ -80,8 +78,6 @@ export default function BusBooking() {
       navigate("/login");
     }
   };
-
-  console.log(bus);
 
   return (
     <div>

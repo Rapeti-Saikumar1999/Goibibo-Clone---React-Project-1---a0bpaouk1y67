@@ -49,15 +49,13 @@ function FlightPayment() {
           },
         };
 
-        console.log("stage1");
-
         const reqBody = {
           bookingType: "flight",
           bookingDetails: {
             flightId: flightID,
           },
         };
-        console.log("stage2");
+
         const res = await axios.post(
           "https://academics.newtonschool.co/api/v1/bookingportals/booking",
           { ...reqBody, appType: "bookingportals" },
