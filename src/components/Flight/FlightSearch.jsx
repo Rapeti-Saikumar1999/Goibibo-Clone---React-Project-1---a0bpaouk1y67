@@ -53,6 +53,8 @@ function FlightSearch() {
         weekday: "short",
       });
       setDay(day);
+    } else {
+      alert("Please select date");
     }
 
     fetchData();

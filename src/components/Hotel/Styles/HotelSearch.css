@@ -75,6 +75,7 @@ form label
    color: white;
    width: auto;
    margin-bottom: 10px;
+   cursor: pointer;
 }
 
 .filters h4{
