@@ -42,10 +42,6 @@ function HotelDisplay() {
     fetchHotelData();
   }, []);
 
-  // useEffect(() => {
-  //   fetchHotelData();
-  // }, [currentIndex]);
-
   function handleClickPre() {
     setCurrentIndex((currentIndex) =>
       currentIndex === 0 ? Hotels.images.length - 1 : currentIndex - 1
@@ -72,13 +68,11 @@ function HotelDisplay() {
       <div className="Display-hotel flight-search-bgc">
         <div className="hotel-display-info">
           <h1 className="hotelTitle">{Hotels.name}</h1>
-          <p className="hotelLocation" style={{ color: "blue" }}>
+          <p className="hotelLocation" style={{ color: "orangered" }}>
             {Hotels.location}
           </p>
-          <p className="hotelRating" style={{ color: "orangeRed" }}>
-            Rating: {Hotels.rating}
-          </p>
-          <p className="hotelAmenities" style={{ color: "green" }}>
+          <p className="hotelRating">Rating: {Hotels.rating}</p>
+          <p className="hotelAmenities">
             Special Benefits: {Hotels.amenities && Hotels.amenities.join(" , ")}
           </p>
         </div>

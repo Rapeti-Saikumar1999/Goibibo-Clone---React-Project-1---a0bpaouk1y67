@@ -40,8 +40,6 @@ function FlightPayment() {
     if (upiid && upipin) {
       try {
         const token = sessionStorage.getItem("userToken");
-
-        const id = "2qduaipfjxvu";
         const config = {
           headers: {
             projectId: "a0bpaouk1y67",

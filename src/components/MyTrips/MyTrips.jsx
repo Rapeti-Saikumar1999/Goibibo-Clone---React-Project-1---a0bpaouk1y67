@@ -4,7 +4,7 @@ import "../MyTrips/MyTrips.css";
 
 function MyTrips() {
   const [Trips, setTrips] = useState();
-
+  // a0bpaouk1y67
   const fetchMyTrips = async () => {
     const token = sessionStorage.getItem("userToken");
     const config = {

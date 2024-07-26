@@ -21,7 +21,7 @@ function FlightSearch() {
     sortPrice: false,
     sortDuration: false,
   });
-  console.log(flightsList);
+
   const handleFilterChange = (filterType, value) => {
     setSelectedFilters({
       ...selectedFilters,
@@ -94,7 +94,10 @@ function FlightSearch() {
     <div className="flight-search-container">
       <div className="flight-search-bgc">
         <div className="form-container">
-          <form className="flight-update-form" onSubmit={() => handleSubmit(e)}>
+          <form
+            className="flight-update-form"
+            onSubmit={(e) => handleSubmit(e)}
+          >
             <input
               type="text"
               name=""

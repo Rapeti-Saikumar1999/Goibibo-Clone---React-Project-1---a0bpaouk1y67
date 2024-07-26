@@ -17,6 +17,9 @@
     width: 90%;
     gap: 20px;
     margin: 20px;
+    border: 1px solid gray;
+    padding: 20px;
+    border-radius: 10px;
 
 }
 
@@ -30,7 +33,7 @@
 }
 
 .hotel-checkout-details  p{
-    color: darkslategrey;
+    /* color: darkslategrey; */
     font-size: 16px;
 }
 

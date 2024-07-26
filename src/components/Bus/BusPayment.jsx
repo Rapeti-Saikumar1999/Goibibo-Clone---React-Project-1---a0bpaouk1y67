@@ -81,10 +81,9 @@ function TrainPayment() {
       try {
         const token = sessionStorage.getItem("userToken");
 
-        const id = "2qduaipfjxvu";
         const config = {
           headers: {
-            projectId: "2qduaipfjxvu",
+            projectId: "a0bpaouk1y67",
             Authorization: `Bearer ${token}`,
           },
         };
@@ -121,8 +120,8 @@ function TrainPayment() {
           <div className="flight-user-details">
             <div className="payment-flight-details">
               <div className="airline-details">
-                <h2 style={{ color: "darkslategray" }}>{state.bus.name}</h2>
-                <h4>{state.bus.type}</h4>
+                <h2 style={{ color: "black" }}>{state.bus.name}</h2>
+                <p style={{ color: "black" }}>{state.bus.type}</p>
               </div>
 
               <div className="payment-bus-info">
@@ -145,7 +144,10 @@ function TrainPayment() {
                     </p>
                   </div>
                 </div>
-                <p>Price: ₹{state.bus.fare}</p>
+                <p>
+                  <span style={{ fontWeight: "bold" }}>Price</span>: ₹
+                  {state.bus.fare}
+                </p>
               </div>
             </div>
 

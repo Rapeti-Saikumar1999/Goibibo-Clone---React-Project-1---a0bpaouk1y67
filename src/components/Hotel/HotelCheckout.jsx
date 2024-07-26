@@ -90,7 +90,7 @@ function HotelCheckout() {
               <div>
                 <p>Room Number: {roomDetails.roomNumber}</p>
                 <p>Room Type: {roomDetails.roomType}</p>
-                <p>Room Size{roomDetails.roomSize}</p>
+                <p>Room Size: {roomDetails.roomSize}</p>
                 <p>Price: ₹{roomDetails.price}</p>
               </div>
               <div>
@@ -118,7 +118,7 @@ function HotelCheckout() {
           </div>
         </div>
 
-        <hr className="footer-hr" style={{ width: "80%" }} />
+        {/* <hr className="footer-hr" style={{ width: "80%" }} /> */}
 
         <div className="checkout-info">
           <h2>GUEST DETAILS</h2>

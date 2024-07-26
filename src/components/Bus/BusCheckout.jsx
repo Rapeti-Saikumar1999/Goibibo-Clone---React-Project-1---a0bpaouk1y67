@@ -39,8 +39,8 @@ export default function BusCheckout() {
           <section className="bus-checkout-info">
             <h2>BUS INFO</h2>
             <div className="busCheckout-header">
-              <h1 style={{ color: "darkgreen" }}>{state.bus.name}</h1>
-              <p style={{ color: "darkmagenta" }}>{state.bus.type}</p>
+              <h1>{state.bus.name}</h1>
+              <p>{state.bus.type}</p>
             </div>
             <div className="busBooking-details">
               <span>
@@ -54,14 +54,14 @@ export default function BusCheckout() {
               </span>
             </div>
           </section>
-          <section className="flight-price-details checkoutPrice">
+          <section className="flight-price-details checkoutPrice BusCheckout_Fare">
             <h1>FARE SUMMARY</h1>
             <span className="grand-total">
-              <p style={{ color: "darkslategray" }}>Base fare</p>
+              <p>Base fare</p>
               <h3>₹{farePrice}</h3>
             </span>
             <span className="grand-total">
-              <p style={{ color: "darkslategray" }}>Taxes and Surcharges</p>
+              <p>Taxes and Surcharges</p>
               <h3>₹{tax}</h3>
             </span>
             <span className="grand-total">

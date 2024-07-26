@@ -52,8 +52,8 @@
     padding: 50px;
     border-radius: 5px ;
     width: 60%;
-    background-color: white;
-    border: none;
+    /* background-color: white; */
+    border: 1px solid gray
 
 
 }
@@ -68,7 +68,7 @@
 
 .flight-info p{
     font-weight: 500;
-    color: gray;
+   
 }
 
 
@@ -80,6 +80,7 @@
     align-items: center;
     text-align: center;
     margin-bottom: 20px;
+    /* background-color: unset; */
 
 }
 

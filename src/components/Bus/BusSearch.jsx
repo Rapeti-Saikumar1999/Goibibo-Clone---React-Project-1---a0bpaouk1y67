@@ -77,6 +77,7 @@ export default function BusSearch() {
       const day = selectedDate.toLocaleDateString("en-US", {
         weekday: "short",
       });
+      setDay(day);
     }
     getBusData();
   };

@@ -94,6 +94,7 @@ export default function TrainSearch() {
       const day = selectedDate.toLocaleDateString("en-US", {
         weekday: "short",
       });
+      setDay(day);
     }
     getTrainsData();
   };
@@ -102,7 +103,7 @@ export default function TrainSearch() {
     <div>
       <div className="flight-search-bgc">
         <div className="train-search-container">
-          <form onSubmit={handleSubmit}>
+          <form>
             <input
               type="text"
               id="from"
@@ -126,7 +127,11 @@ export default function TrainSearch() {
               popperPlacement="bottom-start"
               style={{ height: "8px" }}
             />
-            <button type="submit" className="train-update-btn">
+            <button
+              type="submit"
+              className="train-update-btn"
+              onClick={handleSubmit}
+            >
               Update
             </button>
           </form>
