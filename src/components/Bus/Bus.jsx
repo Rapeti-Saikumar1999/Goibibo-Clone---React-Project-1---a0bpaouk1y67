@@ -28,8 +28,11 @@ export default function Bus() {
   return (
     <>
       <div className="flight-search-bgc Bus">
+        <div className="goibibo"></div>
         <div className="Bus-container">
-          <h2 className="heading">Bus Ticket Booking</h2>
+          <h2 className="heading" style={{ color: "white" }}>
+            Bus Ticket Booking
+          </h2>
           <form onSubmit={handleSubmit}>
             <div className="journeyinfo">
               <input

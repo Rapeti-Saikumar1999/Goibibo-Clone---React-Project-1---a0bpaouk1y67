@@ -10,6 +10,8 @@
   justify-content: center;
   gap: 30px;
   padding-top: 50px;
+  position: relative;
+  z-index: 1;
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
@@ -25,11 +27,12 @@
       #f2fcfe,
       #1c92d2
     ); 
+   
 
 }
 
 .flights > h2 {
-  color: black;
+  color: white;
   font-size: 25px;
   font-weight: 600;
 }
@@ -148,3 +151,14 @@ margin: 50px auto 20px auto;
 
 }
 
+
+.goibibo
+{
+  width: 100%;
+  height: 100vh;
+  background-color: orangered;
+  border-radius: 35%;
+  position: absolute;
+  top: -50%;
+  
+}

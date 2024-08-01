@@ -6,6 +6,12 @@
     gap: 20px;
 }
 
+.Trains
+{
+    position: relative;
+    z-index: 1;
+}
+
 .Trains .radio-button
 {
     display: flex;

@@ -19,6 +19,7 @@ function Hotel() {
   return (
     <div className="hotel-container">
       <div className="flight-search-bgc">
+        <div className="goibibo"></div>
         <div className="search-banner">
           <div className="hotel">
             <h2>Book Hotels and HomeStays</h2>

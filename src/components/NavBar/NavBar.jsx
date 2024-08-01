@@ -7,6 +7,11 @@ import HotelIcon from "@mui/icons-material/Hotel";
 import TrainIcon from "@mui/icons-material/Train";
 import DirectionsBusIcon from "@mui/icons-material/DirectionsBus";
 import { HelpOutline } from "@mui/icons-material";
+import flight from "../../Assets/plane.png";
+import bus from "../../Assets/bus.png";
+import hotel from "../../Assets/hotel.png";
+import train from "../../Assets/train.png";
+import manage from "../../Assets/manage.png";
 function NavBar() {
   const [Menu, setMenu] = useState("flight");
   const { isLoggedIn, setIsLoggedIn } = useAuth();
@@ -30,7 +35,8 @@ function NavBar() {
           style={{ textDecoration: "none" }}
         >
           <div className="nav-box">
-            <FlightOutlinedIcon color="primary" />
+            {/* <FlightOutlinedIcon color="primary" /> */}
+            <img src={flight} alt="" style={{ width: "50px" }} />
             Flights
           </div>
           {Menu === "flight" && <hr />}
@@ -42,7 +48,8 @@ function NavBar() {
           style={{ textDecoration: "none" }}
         >
           <div className="nav-box">
-            <HotelIcon color="primary" />
+            <img src={hotel} alt="" style={{ width: "40px" }} />
+            {/* <HotelIcon color="primary" /> */}
             Hotels
           </div>
           {Menu === "hotels" && <hr />}
@@ -54,7 +61,8 @@ function NavBar() {
           style={{ textDecoration: "none" }}
         >
           <div className="nav-box">
-            <TrainIcon color="primary" />
+            <img src={train} alt="" style={{ width: "50px" }} />
+            {/* <TrainIcon color="primary" /> */}
             Trains
           </div>
           {Menu === "trains" && <hr />}
@@ -66,7 +74,8 @@ function NavBar() {
           style={{ textDecoration: "none" }}
         >
           <div className="nav-box">
-            <DirectionsBusIcon color="primary" />
+            <img src={bus} alt="" style={{ width: "50px" }} />
+            {/* <DirectionsBusIcon color="primary" /> */}
             Bus
           </div>
           {Menu === "bus" && <hr />}
@@ -77,9 +86,19 @@ function NavBar() {
           to="/mytrips"
           style={{ textDecoration: "none" }}
         >
-          <p className="mytrips">MyTrips</p>
-          <p>Manage Bookings</p>
-          {Menu === "mytrips" && <hr />}
+          <div className="manageTrips">
+            <div>
+              <img src={manage} alt="" style={{ width: "30px" }} />
+            </div>
+            <div>
+              <p className="mytrips">MyTrips</p>
+              <p style={{ color: "black", fontSize: "14px" }}>
+                Manage Bookings
+              </p>
+
+              {Menu === "mytrips" && <hr />}
+            </div>
+          </div>
         </NavLink>
       </div>
 

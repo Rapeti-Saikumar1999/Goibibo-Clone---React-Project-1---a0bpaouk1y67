@@ -32,6 +32,7 @@ function Flights() {
   return (
     <div className="flights-container">
       <div className="flights-bgColor">
+        <div className="goibibo"></div>
         <div className="flights">
           <h2>Domestic and International Flights</h2>
           <form action="" className="details" onSubmit={handleSubmit}>

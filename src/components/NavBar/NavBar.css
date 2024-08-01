@@ -18,21 +18,26 @@
     background-color: white;
     box-shadow: 1px 1px 3px -1px gray;
     padding: 10px 20px; 
+    z-index: 10;
+    position: relative;
+  
+
 
 }
 
 .navbar
 {
-    flex: 0.6;
+    /* flex: 0.6; */
     display: flex;
     justify-content: space-between;
     font-weight: 500;
     align-items: flex-end;
+    gap: 20px;
 }
 
 .navlink
 {
-  color: black;
+  color: gray;
   font-size: 16px;
   padding:  10px;
   font-weight: 500;
@@ -50,7 +55,8 @@
 
 .mytrips
 {
-    color: blue;
+    color: gray;
+    font-weight: 600;
     font-size: 12px;
 }
 
@@ -86,4 +92,13 @@ hr{
     background-color: orangered;
     height: 3px;
     
+}
+
+
+.manageTrips
+{
+    display: flex;
+    /* justify-content: center; */
+    align-items: flex-end;
+    gap: 10px;
 }
